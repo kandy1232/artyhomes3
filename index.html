@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en-LK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#23201C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M56 22V56H8V8h30' fill='none' stroke='%2323201C' stroke-width='6'/%3E%3Cpath d='M4 42C20 20 34 30 62 12' fill='none' stroke='%23B23A2C' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
+<!-- ============ SCHEMA 1/4: LocalBusiness / HomeAndConstructionBusiness (static, site-wide) ============ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HomeAndConstructionBusiness",
+  "@id":"https://www.artyhomes.lk/#business",
+  "name":"ArtyHomes",
+  "slogan":"When Design Comes to Life",
+  "url":"https://www.artyhomes.lk/",
+  "logo":"https://www.artyhomes.lk/brand/artyhomes-logo.svg",
+  "image":"https://www.artyhomes.lk/og/cover.jpg",
+  "telephone":"+94771234567",
+  "email":"hello@artyhomes.lk",
+  "priceRange":"LKR 145 - LKR 300 per sqft",
+  "currenciesAccepted":"LKR",
+  "paymentAccepted":"Cash, Bank Transfer, Card",
+  "address":{"@type":"PostalAddress","streetAddress":"182 Galle Road, Kollupitiya","addressLocality":"Colombo","postalCode":"00300","addressCountry":"LK"},
+  "geo":{"@type":"GeoCoordinates","latitude":6.9107,"longitude":79.8494},
+  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"18:00"}],
+  "areaServed":[{"@type":"City","name":"Colombo"},{"@type":"AdministrativeArea","name":"Western Province"},{"@type":"Country","name":"Sri Lanka"}],
+  "sameAs":["https://www.facebook.com/artyhomeslk","https://www.instagram.com/artyhomeslk"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ================= DESIGN TOKENS — derived from the ArtyHomes logo ================= */
+:root{
+  --bg:#F7F4EF; --panel:#FCFAF5; --ink:#23201C; --ink2:#5C564C; --ink3:#8E8678;
+  --red:#B23A2C; --red2:#D2604F;          /* the brushstroke */
+  --blue:#1F5F8C; --blue2:#8FB3CF;        /* the "HOMES" steel blue */
+  --line:rgba(35,32,28,.16); --line2:rgba(35,32,28,.08);
+  --dark:#1A1713; --dark2:#221E19; --err:#A3402E;
+  --fd:'Fraunces',Georgia,serif; --fb:'Archivo',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font:16px/1.6 var(--fb);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+::selection{background:var(--red);color:#fff}
+:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+[id]{scroll-margin-top:96px}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.ic{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ic-f{fill:currentColor;stroke:none}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--bg);padding:10px 16px;z-index:200}
+.skip:focus{left:12px;top:12px}
+/* ================= TYPE ================= */
+.f-d{font-family:var(--fd);font-weight:560;letter-spacing:-.01em;line-height:1.06}
+.eyebrow{font:600 11px/1 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--red)}
+.lede{color:var(--ink2);font-size:17px;line-height:1.7}
+/* ================= BRAND LOCKUP ================= */
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-mark{width:42px;height:42px;flex:none;color:var(--ink)}
+.brand-mark .halo{stroke:var(--bg)}
+.brand-word{font:700 18px/1 var(--fb);letter-spacing:.17em;color:var(--ink);display:block}
+.brand-word b{color:var(--blue);font-weight:700}
+.brand-tag{display:block;font:italic 500 11.5px/1 var(--fd);color:var(--ink2);margin-top:5px}
+/* ================= BUTTONS ================= */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 13px/1 var(--fb);letter-spacing:.07em;text-transform:uppercase;padding:16px 26px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;text-decoration:none;transition:background .25s,color .25s,border-color .25s}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn-solid{background:var(--ink);color:var(--bg)}
+.btn-solid:hover{background:var(--red);border-color:var(--red);color:#fff}
+.btn-sm{padding:12px 18px;font-size:12px}
+.tlink{display:inline-flex;align-items:center;gap:8px;font:600 13px/1 var(--fb);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--red);padding-bottom:6px}
+.tlink:hover{color:var(--red)}
+/* ================= HEADER ================= */
+.topbar{background:var(--dark);color:rgba(247,244,239,.85);font-size:12px}
+.tb-in{display:flex;justify-content:space-between;align-items:center;height:36px}
+.tb-item{display:inline-flex;align-items:center;gap:7px;text-decoration:none}
+.tb-item .ic{width:13px;height:13px;color:var(--red2)}
+.nav{position:sticky;top:0;z-index:60;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:30px;height:76px}
+.nav .brand{margin-right:auto}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links>a,.dd-btn{font:600 12px/1 var(--fb);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;background:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:6px 0;color:var(--ink2)}
+.nav-links>a:hover,.dd-btn:hover{color:var(--ink)}
+.nav-links>a.on{color:var(--ink);box-shadow:0 10px 0 -9px var(--red)}
+.dd{position:relative}
+.dd-panel{position:absolute;top:calc(100% + 14px);left:-20px;background:var(--bg);border:1px solid var(--line);min-width:300px;padding:10px 0;display:none;box-shadow:0 18px 40px rgba(20,17,12,.12)}
+.dd.open .dd-panel{display:block}
+.dd-panel a{display:flex;justify-content:space-between;gap:24px;padding:11px 22px;font:500 13px var(--fb);text-decoration:none}
+.dd-panel a span{color:var(--ink3);font-size:12px}
+.dd-panel a:hover{background:var(--panel);color:var(--red)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+.burger .ic{width:22px;height:22px}
+/* mobile menu */
+.mmenu{position:fixed;inset:0;z-index:100;background:var(--bg);padding:24px;display:none;flex-direction:column;overflow:auto}
+body.menu-open .mmenu{display:flex}
+.mmenu-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px}
+.mmenu a.mlink{font-family:var(--fd);font-size:30px;text-decoration:none;padding:13px 0;border-bottom:1px solid var(--line2)}
+.mmenu a.mlink.sub{font-size:19px;color:var(--ink2);padding-left:20px}
+.mmenu-foot{margin-top:auto;padding-top:28px;color:var(--ink2);font-size:14px}
+/* ================= SECTIONS ================= */
+.sec{padding:96px 0}
+.sec-dark{background:var(--dark);color:#F7F4EF}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:52px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(30px,3.6vw,46px);max-width:640px}
+.sec-head .lede{max-width:520px;font-size:15px}
+/* ================= HERO ================= */
+.hero{padding:76px 0 96px}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center}
+.hero h1{font-size:clamp(40px,4.9vw,66px);margin:22px 0 24px}
+.hero .lede{max-width:54ch}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
+.hero-micro{margin-top:18px;font-size:13px;color:var(--ink3)}
+.hero-media{position:relative;padding-bottom:56px}
+.hm-a{width:74%;aspect-ratio:3/4;object-fit:cover}
+.hm-b{position:absolute;right:0;bottom:0;width:46%;aspect-ratio:4/3.1;object-fit:cover;border:8px solid var(--bg)}
+.hm-cap{position:absolute;left:8%;bottom:8px;background:var(--ink);color:var(--bg);font-size:11.5px;letter-spacing:.04em;padding:9px 14px}
+.hero-media::after{content:"";position:absolute;left:-16px;top:-16px;width:120px;height:120px;border-left:1px solid var(--red);border-top:1px solid var(--red)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:88px}
+.stats div{padding:24px 20px 0 0}
+.stats div+div{border-left:1px solid var(--line2);padding-left:24px}
+.stats b{font:italic 500 34px/1 var(--fd);color:var(--red);display:block;margin-bottom:6px}
+.stats span{font:500 11px/1.5 var(--fb);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+/* ================= COLLECTION INDEX ================= */
+.colx{border-top:1px solid var(--line)}
+.colx a{display:grid;grid-template-columns:70px 1fr auto 110px 40px;align-items:center;gap:20px;padding:24px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.colx .n{font:italic 500 15px var(--fd);color:var(--red)}
+.colx .t{font-family:var(--fd);font-size:27px;font-weight:520;transition:transform .3s,color .3s}
+.colx a:hover .t{transform:translateX(8px);color:var(--red)}
+.colx .m{font-size:12.5px;color:var(--ink3);text-align:right}
+.colx img{width:104px;height:68px;object-fit:cover}
+.colx .ic{width:20px;height:20px;color:var(--ink3);transition:transform .3s,color .3s}
+.colx a:hover .ic{transform:translateX(6px);color:var(--red)}
+/* ================= TRUST STRIP ================= */
+.trust{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust>div{display:flex;gap:16px;padding:6px 26px;border-left:1px solid var(--line)}
+.trust>div:first-child{border-left:0;padding-left:0}
+.trust .ic{width:26px;height:26px;color:var(--blue)}
+.trust b{display:block;font-size:14.5px;font-weight:600;margin-bottom:3px}
+.trust p{font-size:12.5px;color:var(--ink2);line-height:1.5}
+/* ================= CALCULATOR ================= */
+.calc{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:start}
+.stage{position:relative;background:#EFEAE0;border:1px solid var(--line);height:440px;overflow:hidden}
+.stage-cap{position:absolute;left:14px;bottom:12px;font-size:11.5px;color:var(--ink3);letter-spacing:.04em}
+.wall{position:absolute;background:#E2DAC9;border:1px solid var(--ink);box-shadow:0 14px 34px rgba(20,17,12,.16)}
+.wall-tag{position:absolute;left:10px;top:10px;font:600 10.5px/1 var(--fb);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);background:rgba(247,244,239,.85);padding:5px 8px}
+.seam{position:absolute;top:0;bottom:0;width:0;border-left:1px dashed rgba(35,32,28,.28)}
+.dim{position:absolute;background:var(--ink)}
+.dim span{position:absolute;font:600 12px var(--fb);color:var(--ink);white-space:nowrap;background:var(--bg);padding:0 8px}
+.dim-w{height:1px}.dim-w span{left:50%;top:-22px;transform:translateX(-50%)}
+.dim-h{width:1px}.dim-h span{top:50%;left:-22px;transform:translate(-50%,-50%) rotate(-90deg)}
+.dim::before,.dim::after{content:"";position:absolute;background:var(--ink)}
+.dim-w::before{left:0;top:-5px;width:1px;height:11px}.dim-w::after{right:0;top:-5px;width:1px;height:11px}
+.dim-h::before{top:0;left:-5px;height:1px;width:11px}.dim-h::after{bottom:0;left:-5px;height:1px;width:11px}
+.hnd{position:absolute;width:20px;height:20px;border-radius:50%;background:var(--red);border:3px solid var(--bg);box-shadow:0 1px 6px rgba(0,0,0,.3);cursor:ew-resize;touch-action:none;z-index:3}
+.hnd-v{cursor:ns-resize}
+.calc-lab{font:600 11px/1 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);display:block;margin:26px 0 10px}
+.seg{display:inline-flex;border:1px solid var(--ink)}
+.seg button{padding:10px 20px;font:600 12px/1 var(--fb);letter-spacing:.08em;background:none;border:0;cursor:pointer}
+.seg button.on{background:var(--ink);color:var(--bg)}
+.dims{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.dims label span{font:600 11px/1 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--ink2)}
+.dims input{width:100%;border:0;border-bottom:1px solid var(--ink);background:transparent;font:500 30px var(--fd);padding:6px 0 8px;color:var(--ink)}
+.dims input:focus{outline:none;border-color:var(--red)}
+.dims small{color:var(--ink3);font-size:11.5px}
+.mats label,.adds label{display:flex;align-items:center;gap:14px;padding:14px 2px;border-bottom:1px solid var(--line2);cursor:pointer}
+.mats input,.adds input{position:absolute;opacity:0;pointer-events:none}
+.dot{width:17px;height:17px;border:1px solid var(--ink);border-radius:50%;flex:none;position:relative}
+.mats input:checked+.dot::after{content:"";position:absolute;inset:3px;background:var(--red);border-radius:50%}
+.box{width:17px;height:17px;border:1px solid var(--ink);flex:none;position:relative}
+.adds input:checked+.box::after{content:"";position:absolute;inset:2px;background:var(--red)}
+.mat-n{font-weight:600;font-size:14.5px}
+.mat-n small{display:block;font-weight:400;color:var(--ink3);font-size:12px}
+.mat-r{margin-left:auto;font:italic 500 16px var(--fd);color:var(--red);white-space:nowrap}
+.add-n{font-size:14px}.add-r{margin-left:auto;color:var(--ink2);font-size:13px;white-space:nowrap}
+.bd{background:var(--panel);border:1px solid var(--line);padding:26px;margin-top:30px}
+.bd-r{display:flex;justify-content:space-between;gap:16px;font-size:14px;color:var(--ink2);padding:5px 0}
+.bd-r b{color:var(--ink);font-weight:600}
+.bd-r.wv b{color:var(--red)}
+.bd-t{border-top:1px solid var(--ink);margin-top:14px;padding-top:16px;display:flex;justify-content:space-between;align-items:baseline}
+.bd-t span{font:600 12px var(--fb);letter-spacing:.14em;text-transform:uppercase}
+.bd-t b{font:500 34px var(--fd)}
+.bd-t small{font:500 13px var(--fb);color:var(--red);font-weight:600}
+.calc-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+/* ================= STEPS ================= */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.step{padding:30px 26px 0 0}
+.step+.step{border-left:1px solid var(--line2);padding-left:26px}
+.step i{font:italic 500 46px/1 var(--fd);color:var(--red);display:block;margin-bottom:14px}
+.step h3{font:520 21px var(--fd);margin-bottom:10px}
+.step p{font-size:13.5px;color:var(--ink2);line-height:1.65}
+/* ================= SPEC ROWS ================= */
+.spec{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:start}
+.spec-l{position:sticky;top:110px}
+.spec-l p{margin-top:18px;font-size:14.5px;color:var(--ink2)}
+.mat-row{border-top:1px solid var(--line);padding:30px 0;display:grid;grid-template-columns:220px 1fr auto;gap:26px}
+.mat-row:last-child{border-bottom:1px solid var(--line)}
+.mat-row h3{font:520 23px var(--fd)}
+.mat-row h3 small{display:block;font:italic 400 14px var(--fd);color:var(--red);margin-top:4px}
+.mat-row dl{font-size:13.5px;color:var(--ink2)}
+.mat-row dt{font:600 11px/1 var(--fb);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-bottom:3px}
+.mat-row dd{margin-bottom:12px;line-height:1.55}
+.mat-row .pr{font:italic 500 22px var(--fd);color:var(--red);white-space:nowrap}
+.mat-row .pr small{display:block;font:500 10.5px var(--fb);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.ink-note{margin-top:34px;border:1px solid var(--red);padding:20px 24px;display:flex;gap:16px;align-items:flex-start;font-size:14px;color:var(--ink2)}
+.ink-note .ic{width:22px;height:22px;color:var(--red);margin-top:2px}
+/* ================= GALLERY ================= */
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:36px}
+.chip{padding:10px 18px;border:1px solid var(--line);background:transparent;font:500 12px/1 var(--fb);letter-spacing:.05em;cursor:pointer;transition:.2s}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.gal{columns:3;column-gap:22px}
+.gal-item{break-inside:avoid;margin:0 0 22px;position:relative}
+.tile{display:block;width:100%;padding:0;border:0;background:#E7E1D3;cursor:pointer;overflow:hidden}
+.tile img{width:100%;height:auto;transition:transform .8s cubic-bezier(.2,.65,.2,1)}
+.gal-item:hover .tile img{transform:scale(1.045)}
+.tile-cap{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 15px;background:rgba(247,244,239,.94);transform:translateY(102%);transition:transform .35s}
+.gal-item:hover .tile-cap{transform:none}
+.cap-n{font:600 13.5px var(--fb)}
+.cap-p{font:italic 500 13px var(--fd);color:var(--red);white-space:nowrap}
+.gal-more{margin-top:36px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.gal-more p{font-size:13px;color:var(--ink3)}
+/* ================= LIGHTBOX ================= */
+.lb{position:fixed;inset:0;z-index:110;display:none}
+.lb.open{display:block}
+.lb-bg{position:absolute;inset:0;background:rgba(18,15,11,.88)}
+.lb-panel{position:absolute;inset:0;margin:auto;width:min(1060px,94vw);height:fit-content;max-height:92vh;overflow:auto;background:var(--bg);display:grid;grid-template-columns:1.45fr .9fr}
+.lb-media{background:#E9E3D5;display:flex;align-items:center;justify-content:center;padding:26px;min-height:340px}
+.lb-media img{max-width:100%;max-height:74vh;object-fit:contain}
+.lb-info{padding:34px 32px;display:flex;flex-direction:column;gap:16px}
+.lb-info h3{font-size:29px}
+.lb-rows{border-top:1px solid var(--line)}
+.lb-rows div{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid var(--line2);font-size:13.5px;color:var(--ink2)}
+.lb-rows b{color:var(--ink);font-weight:600;text-align:right}
+.lb-alt{font-size:12px;color:var(--ink3);line-height:1.6;border-left:2px solid var(--blue);padding-left:12px}
+.lb-alt b{color:var(--ink2);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:10.5px}
+.lb-x{position:absolute;top:12px;right:12px;z-index:2;background:var(--bg);border:1px solid var(--line);width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.lb-x:hover{background:var(--ink);color:var(--bg)}
+.lb-nav{display:flex;gap:10px;margin-top:auto;padding-top:8px}
+.lb-nav button{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border:1px solid var(--line);background:none;cursor:pointer;font:600 12px var(--fb);letter-spacing:.06em;text-transform:uppercase}
+.lb-nav button:hover{background:var(--ink);color:var(--bg)}
+/* ================= PROJECTS / TESTIMONIALS ================= */
+.pg{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
+.pg figure{grid-column:span var(--sp,6)}
+.pg img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.pg figure.tl img{aspect-ratio:4/4.6}
+.pg figcaption{padding:14px 2px 0}
+.pg figcaption b{font:520 20px var(--fd);display:block}
+.pg figcaption span{font-size:12.5px;color:var(--ink3);letter-spacing:.03em}
+.quotes{display:grid;grid-template-columns:7fr 5fr;gap:56px}
+.q-big{font:460 clamp(23px,2.6vw,32px)/1.35 var(--fd);letter-spacing:-.01em}
+.q-big::before{content:"\201C";color:var(--red);font-size:1.4em;line-height:0}
+.q-who{display:flex;align-items:center;gap:14px;margin-top:26px}
+.q-who .stars{display:flex;gap:3px;color:var(--red)}
+.q-who .ic{width:14px;height:14px}
+.q-who b{font-size:14px}.q-who span{font-size:12.5px;color:var(--ink3)}
+.q-sm{border-top:1px solid var(--line);padding:22px 0;font-size:15px;color:var(--ink2);line-height:1.7}
+.q-sm:first-child{border-top:0;padding-top:0}
+/* ================= FAQ ================= */
+.faq-item{border-top:1px solid var(--line)}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:22px;padding:24px 2px;background:none;border:0;text-align:left;cursor:pointer}
+.faq-q h3{font:500 19px var(--fd)}
+.faq-q .ic{width:18px;height:18px;color:var(--red);transition:transform .35s}
+.faq-item.open .faq-q .ic{transform:rotate(180deg)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.faq-a>div{overflow:hidden}
+.faq-a p{padding:0 2px 26px;color:var(--ink2);font-size:15px;line-height:1.75;max-width:76ch}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+/* ================= TABLES / FORMS / UPLOAD ================= */
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--panel)}
+.tbl th{font:600 11px/1 var(--fb);letter-spacing:.12em;text-transform:uppercase;text-align:left;padding:14px 18px;border-bottom:1px solid var(--ink);color:var(--ink2)}
+.tbl td{padding:15px 18px;border-bottom:1px solid var(--line2);vertical-align:top}
+.tbl td:first-child{font-weight:600}
+.tbl .pr{font:italic 500 18px var(--fd);color:var(--red);white-space:nowrap}
+.notes li{margin:10px 0 0 20px;font-size:14.5px;color:var(--ink2)}
+.fld{margin-bottom:20px}
+.fld label{display:block;font:600 11px/1 var(--fb);letter-spacing:.15em;text-transform:uppercase;color:var(--ink2);margin-bottom:6px}
+.fld input,.fld select,.fld textarea{width:100%;padding:12px 0;border:0;border-bottom:1px solid var(--ink);background:transparent;font:15px var(--fb);color:var(--ink);border-radius:0}
+.fld textarea{min-height:96px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--red)}
+.fld .err{display:none;color:var(--err);font-size:12px;margin-top:5px}
+.fld.bad input{border-color:var(--err)}
+.fld.bad .err{display:block}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
+.up{border:1px dashed var(--ink);padding:40px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;cursor:pointer;transition:border-color .25s;background:var(--panel)}
+.up:hover{border-color:var(--red)}
+.up .ic{width:30px;height:30px;color:var(--red)}
+.up b{font:520 19px var(--fd)}
+.up p{font-size:13px;color:var(--ink3)}
+.up-preview{display:none;align-items:center;gap:18px;border:1px solid var(--line);padding:14px 18px;margin-top:18px;background:var(--panel)}
+.up-preview img{width:64px;height:64px;object-fit:cover}
+.up-preview b{font-size:14px;display:block}
+.up-preview span{font-size:12px;color:var(--ink3)}
+/* ================= CTA BAND / FOOTER ================= */
+.cta-band{text-align:center;padding:104px 0}
+.cta-band h2{font-size:clamp(32px,4.4vw,56px);max-width:16ch;margin:20px auto 18px}
+.cta-band p{color:rgba(247,244,239,.65);max-width:52ch;margin:0 auto 34px}
+.cta-band .eyebrow{color:var(--red2);justify-content:center}
+.cta-band .eyebrow::before{background:var(--red2)}
+.cta-band .btn-solid{background:var(--red2);border-color:var(--red2);color:#fff}
+.cta-band .btn-solid:hover{background:#F7F4EF;border-color:#F7F4EF;color:var(--ink)}
+.cta-band .btn-line-i{border-color:rgba(247,244,239,.5);color:var(--bg)}
+.cta-band .btn-line-i:hover{background:var(--bg);color:var(--ink)}
+footer{background:var(--dark);color:rgba(247,244,239,.72)}
+.ft{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.1fr;gap:44px;padding:72px 0 56px}
+.ft h4{font:600 11px/1 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--blue2);margin-bottom:18px}
+.ft a{display:block;text-decoration:none;font-size:14px;padding:5px 0}
+.ft a:hover{color:var(--red2)}
+.ft .brand-mark{width:50px;height:50px}
+.ft .brand-mark .halo{stroke:var(--dark)}
+.ft .brand-word{color:#F7F4EF;font-size:21px}
+.ft .brand-word b{color:var(--blue2)}
+.ft .brand-tag{color:rgba(247,244,239,.6)}
+.ft p{font-size:14px;line-height:1.8}
+.ft-b{border-top:1px solid rgba(247,244,239,.14);padding:22px 0;display:flex;justify-content:space-between;gap:16px;font-size:12px;color:rgba(247,244,239,.45);flex-wrap:wrap}
+.ft-b em{font-family:var(--fd);color:rgba(247,244,239,.6)}
+/* ================= STICKY BAR / TOAST / REVEAL ================= */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;grid-template-columns:1fr 1fr}
+.callbar a{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 8px calc(15px + env(safe-area-inset-bottom));font:600 13px/1 var(--fb);letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+.callbar .cb-a{background:var(--bg);color:var(--ink);border-top:1px solid var(--line);border-right:1px solid var(--line)}
+.callbar .cb-b{background:var(--red);color:#fff;border-top:1px solid rgba(247,244,239,.2)}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,90px);background:var(--ink);color:var(--bg);padding:13px 22px;font:500 13px var(--fb);opacity:0;transition:.35s;z-index:150;pointer-events:none;max-width:90vw}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+/* ================= RESPONSIVE ================= */
+@media(max-width:1024px){
+  .nav-links,.nav-cta{display:none}.burger{display:block}
+  .hero-grid{grid-template-columns:1fr;gap:48px}.hero-media{max-width:520px}
+  .calc,.spec,.quotes{grid-template-columns:1fr}.spec-l{position:static}
+  .steps{grid-template-columns:1fr 1fr;gap:34px 0}.step+.step{border-left:0;padding-left:0}
+  .gal{columns:2}
+  .lb-panel{grid-template-columns:1fr}
+  .trust{grid-template-columns:1fr 1fr;gap:26px 0}.trust>div{border-left:0;padding-left:0}
+  .ft{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .sec{padding:64px 0}.hero{padding:48px 0 64px}
+  .stats{grid-template-columns:1fr 1fr}.stats div{padding-right:12px}.stats div+div{padding-left:16px}
+  .colx a{grid-template-columns:44px 1fr 76px 30px}.colx .m{display:none}.colx img{width:76px;height:52px}
+  .gal{columns:1}
+  .gal-item .tile-cap{transform:none}
+  .steps{grid-template-columns:1fr}
+  .pg figure{grid-column:span 12 !important}.pg img{aspect-ratio:16/10}
+  .mat-row{grid-template-columns:1fr}
+  .stage{height:340px}
+  .f2{grid-template-columns:1fr}
+  .hide-s{display:none}
+  .callbar{display:grid}
+  main{padding-bottom:56px}
+  .dims input{font-size:24px}
+}
+@media(max-width:900px){#ctGrid{grid-template-columns:1fr !important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#app">Skip to content</a>
+
+<!-- SVG icon sprite -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c0 4 2.5 6.5 6.5 6.5l.9-1.8-2.2-1.1-1 .9c-1.2-.6-1.9-1.3-2.4-2.4l.9-1-1.1-2.2z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 5l7 7-7 7"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 7.7-8 9-4.6-1.3-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C5 9 13 5 20 4c0 8-4 15-13 15"/><path d="M5 19c3-5 7-8 11-10"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 6.3 6 11a6 6 0 0 1-12 0c0-4.7 6-11 6-11z"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4m0 0L7 9m5-5l5 5"/><path d="M5 20h14"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z"/></symbol>
+</svg>
+
+<header>
+  <div class="topbar"><div class="container tb-in">
+    <span class="tb-item"><svg class="ic"><use href="#i-pin"/></svg>182 Galle Road, Colombo 03</span>
+    <span class="tb-item hide-s"><svg class="ic"><use href="#i-clock"/></svg>Mon – Sat · 9.00 am – 6.00 pm</span>
+    <a class="tb-item" href="tel:+94771234567"><svg class="ic"><use href="#i-phone"/></svg>+94 77 123 4567</a>
+  </div></div>
+  <nav class="nav" aria-label="Main"><div class="container nav-in">
+    <!-- BRAND LOCKUP — replace this block with <img src="/brand/artyhomes-logo.svg" alt="ArtyHomes — When Design Comes to Life"> in production -->
+    <a class="brand" href="#/" aria-label="ArtyHomes — When Design Comes to Life">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M56 22V56H8V8h30" fill="none" stroke="currentColor" stroke-width="5"/>
+        <path class="halo" d="M4 42C20 20 34 30 62 12" fill="none" stroke-width="13" stroke-linecap="round"/>
+        <path d="M4 42C20 20 34 30 62 12" fill="none" stroke="var(--red)" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-txt">
+        <span class="brand-word">ARTY<b>HOMES</b></span>
+        <span class="brand-tag">When Design Comes to Life</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="#/" data-nav="home">Home</a>
+      <a href="#/custom-wallpaper-sri-lanka" data-nav="custom">Custom Wallpaper</a>
+      <div class="dd" id="dd">
+        <button class="dd-btn" id="ddBtn" aria-expanded="false" aria-haspopup="true">Collections <svg class="ic"><use href="#i-chev"/></svg></button>
+        <div class="dd-panel" id="ddPanel"></div>
+      </div>
+      <a href="#/pricing-calculator" data-nav="pricing">Pricing</a>
+      <a href="#/projects-portfolio" data-nav="portfolio">Portfolio</a>
+      <a href="#/contact-us" data-nav="contact">Contact</a>
+    </div>
+    <a class="btn btn-solid btn-sm nav-cta" href="#/custom-wallpaper-sri-lanka?goto=calc">Get Estimate</a>
+    <button class="burger" id="burger" aria-label="Open menu"><svg class="ic"><use href="#i-menu"/></svg></button>
+  </div></nav>
+</header>
+
+<!-- Mobile menu -->
+<div class="mmenu" id="mmenu" aria-hidden="true">
+  <div class="mmenu-top">
+    <span class="brand">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M56 22V56H8V8h30" fill="none" stroke="currentColor" stroke-width="5"/>
+        <path class="halo" d="M4 42C20 20 34 30 62 12" fill="none" stroke-width="13" stroke-linecap="round"/>
+        <path d="M4 42C20 20 34 30 62 12" fill="none" stroke="var(--red)" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <span><span class="brand-word">ARTY<b>HOMES</b></span><span class="brand-tag">When Design Comes to Life</span></span>
+    </span>
+    <button class="lb-x" id="mmClose" aria-label="Close menu"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+  <a class="mlink" href="#/">Home</a>
+  <a class="mlink" href="#/custom-wallpaper-sri-lanka">Custom Wallpaper</a>
+  <a class="mlink sub" href="#/wallpaper/floral">Floral</a>
+  <a class="mlink sub" href="#/wallpaper/animal-wildlife">Animal &amp; Wildlife</a>
+  <a class="mlink sub" href="#/wallpaper/kids-educational">Kids &amp; Educational</a>
+  <a class="mlink sub" href="#/wallpaper/geometric-3d">Geometric 3D</a>
+  <a class="mlink sub" href="#/wallpaper/tropical-nature">Tropical &amp; Nature</a>
+  <a class="mlink sub" href="#/wallpaper/luxury-abstract">Luxury Abstract</a>
+  <a class="mlink" href="#/pricing-calculator">Pricing &amp; Calculator</a>
+  <a class="mlink" href="#/projects-portfolio">Portfolio</a>
+  <a class="mlink" href="#/anti-fungal-installation-guide">Installation Guide</a>
+  <a class="mlink" href="#/contact-us">Contact</a>
+  <div class="mmenu-foot">182 Galle Road, Colombo 03<br>+94 77 123 4567 · Mon–Sat 9–6</div>
+</div>
+
+<main id="app"></main>
+
+<footer>
+  <div class="container ft">
+    <div>
+      <span class="brand">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M56 22V56H8V8h30" fill="none" stroke="#F7F4EF" stroke-width="5"/>
+          <path class="halo" d="M4 42C20 20 34 30 62 12" fill="none" stroke-width="13" stroke-linecap="round"/>
+          <path d="M4 42C20 20 34 30 62 12" fill="none" stroke="var(--red2)" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <span><span class="brand-word">ARTY<b>HOMES</b></span><span class="brand-tag">When Design Comes to Life</span></span>
+      </span>
+      <p style="margin-top:18px;max-width:34ch">Sri Lanka's specialist studio for custom wallpaper, seamless wall murals and designer roll collections — printed and installed from our own Colombo facility.</p>
+    </div>
+    <div>
+      <h4>Collections</h4>
+      <a href="#/wallpaper/floral">Floral Wallpaper</a>
+      <a href="#/wallpaper/animal-wildlife">Animal &amp; Wildlife</a>
+      <a href="#/wallpaper/kids-educational">Kids &amp; Educational</a>
+      <a href="#/wallpaper/geometric-3d">Geometric 3D</a>
+      <a href="#/wallpaper/tropical-nature">Tropical &amp; Nature</a>
+      <a href="#/wallpaper/luxury-abstract">Luxury Abstract</a>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <a href="#/custom-wallpaper-sri-lanka">Custom Wall Murals</a>
+      <a href="#/pricing-calculator">Price Calculator</a>
+      <a href="#/projects-portfolio">Projects Portfolio</a>
+      <a href="#/anti-fungal-installation-guide">Installation Guide</a>
+      <a href="#/contact-us">Contact Us</a>
+    </div>
+    <div>
+      <h4>Showroom</h4>
+      <p>182 Galle Road, Kollupitiya<br>Colombo 00300, Sri Lanka</p>
+      <p style="margin-top:12px">+94 77 123 4567<br>hello@artyhomes.lk<br>Mon – Sat · 9.00 am – 6.00 pm</p>
+    </div>
+  </div>
+  <div class="container ft-b">
+    <span>© 2025 ArtyHomes (Pvt) Ltd — Colombo, Sri Lanka · sitemap.xml &amp; robots.txt auto-generated by the framework</span>
+    <em>When Design Comes to Life</em>
+  </div>
+</footer>
+
+<!-- Mobile sticky conversion bar -->
+<div class="callbar">
+  <a class="cb-a" href="tel:+94771234567"><svg class="ic"><use href="#i-phone"/></svg>Call Specialist</a>
+  <a class="cb-b" id="cbWa" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg>WhatsApp Inquiry</a>
+</div>
+
+<!-- Lightbox -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Design preview">
+  <div class="lb-bg" data-close></div>
+  <div class="lb-panel">
+    <button class="lb-x" data-close aria-label="Close preview"><svg class="ic"><use href="#i-x"/></svg></button>
+    <div class="lb-media"><img id="lbImg" alt=""></div>
+    <aside class="lb-info">
+      <p class="eyebrow" id="lbCat"></p>
+      <h3 class="f-d" id="lbName"></h3>
+      <div class="lb-rows" id="lbRows"></div>
+      <p class="lb-alt" id="lbAlt"></p>
+      <a class="btn btn-solid btn-sm" id="lbWa" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg>Enquire on WhatsApp</a>
+      <div class="lb-nav">
+        <button id="lbPrev"><svg class="ic"><use href="#i-left"/></svg>Previous</button>
+        <button id="lbNext">Next<svg class="ic"><use href="#i-right"/></svg></button>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* =====================================================================
+   CONFIG — single source of truth. Replace phone/WA/address before launch.
+===================================================================== */
+const BIZ = {
+  name:'ArtyHomes',
+  phone:'+94 77 123 4567', phoneHref:'tel:+94771234567',   // ← REPLACE with real number
+  wa:'94771234567',                                        // ← REPLACE (digits only, country code, no +)
+  email:'hello@artyhomes.lk',
+  addr:'182 Galle Road, Kollupitiya, Colombo 03',          // ← REPLACE with real address
+  hours:'Mon – Sat · 9.00 am – 6.00 pm',
+  site:'https://www.artyhomes.lk'
+};
+const $  = (s,r=document)=>r.querySelector(s);
+const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
+const fmt = n => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const pic = (seed,w,h)=>`https://picsum.photos/seed/${seed}/${w}/${h}.jpg`; // ← replace with Cloudinary f_auto,q_auto helper
+const srcset=(seed,r)=>[400,800,1200].map(w=>`${pic(seed,w,Math.round(w/r))} ${w}w`).join(', ');
+const waLink = t => `https://wa.me/${BIZ.wa}?text=${encodeURIComponent(t)}`;
+const ic = (n,c='')=>`<svg class="ic ${c}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+const strip = h => h.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+
+/* =====================================================================
+   DATA — categories (CMS-shaped: title, slug, alt, tags, price per item)
+===================================================================== */
+const CATS = [
+{slug:'floral',name:'Floral',count:48,low:9800,high:16500,
+ title:'Floral Wallpaper Sri Lanka | Custom & Rolls | ArtyHomes',
+ desc:'Watercolor botanicals, dark moody florals & chinoiserie by ArtyHomes — printed to your wall size or by the roll. Colombo showroom, islandwide install.',
+ h1:'Floral Wallpaper in Sri Lanka — Custom Printed & Ready-Made',
+ intro:`<p>Floral wallpaper remains Sri Lanka's most requested wall covering — and it has moved far beyond the dainty prints of the past. In Colombo apartments we are asked weekly for loose watercolor botanicals that soften minimalist interiors, while dark, moody florals in deep teal, charcoal and burgundy have become the default for bedroom feature walls behind upholstered heads. Chinoiserie-style gardens with cranes and blossoms suit dining rooms and entrance foyers, where they read as commissioned art rather than wallpaper.</p><p>Every design here is printed to your wall's exact measurements, so the pattern scale never gets awkwardly cropped the way off-the-shelf rolls do — a six-foot magnolia stays a six-foot magnolia. Choose breathable non-woven matte for bedrooms, washable PVC-free textured finishes for dining areas, or seamless fabric for walls wider than five metres. Because all our media carry an anti-fungal base treatment and odorless latex inks, these florals are just as safe in a Negombo nursery as in a Galle Fort boutique hotel. Visit the Colombo 03 showroom for full-scale samples, or WhatsApp us a photo of your wall for a free styling suggestion.</p>`,
+ chips:['All','Watercolor','Dark Floral','Vintage','Botanical Line','Large Scale'],
+ names:[['Watercolor Peony Trail','Watercolor'],['Dark Velvet Rose Scroll','Dark Floral'],['Chinoiserie Crane Garden','Vintage'],['Wildflower Meadow Study','Watercolor'],['Grand Camellia Panel','Large Scale'],['Magnolia & Linen','Botanical Line'],['Blush Sakura Cloud','Watercolor'],['Botanical Line Art No.3','Botanical Line'],['Midnight Damask Bloom','Dark Floral'],['Marigold Garland','Vintage'],['Giant Willow Boughs','Large Scale'],['Tonal Fern Shadow','Botanical Line']]},
+{slug:'animal-wildlife',name:'Animal & Wildlife',count:36,low:10200,high:16800,
+ title:'Animal & Wildlife Wallpaper Sri Lanka | ArtyHomes',
+ desc:'Safari, elephant, bird & ocean wallpaper by ArtyHomes for kids\u2019 rooms and statement walls. Custom-printed to any size in Sri Lanka. Free measuring.',
+ h1:'Animal & Wildlife Wallpaper in Sri Lanka — Statement Walls with Character',
+ intro:`<p>Animal wallpaper works on two very different registers, and we print for both. For adults it is the muted safari: herds of Sri Lankan elephants crossing a wall in tonal greys, leopard silhouettes inspired by Wilpattu rendered in charcoal and ochre, kingfishers and hornbills picked out in gold leaf. For children it is brighter and louder — jungle friends, coral reefs and butterfly studies that turn a bedroom into a story.</p><p>Scale is everything with wildlife murals. A single oversized animal on a plain ground reads as art in a small room; a full repeating herd needs width, which is exactly why we print these to measure rather than selling fixed rolls. For kids' rooms we recommend the washable PVC-free textured material — crayon and curry-fingerprints wipe straight off — while living areas take the breathable non-woven matte. Every print uses odorless latex inks and an anti-fungal base, so a wildlife wall is as safe behind a cot as it is behind a sofa. Send us your wall's width and height on WhatsApp and we will return a scaled preview and a firm price within a day.</p>`,
+ chips:['All','Safari','Birds','Ocean','Minimal','Kids'],
+ names:[['Sri Lankan Elephant Parade','Safari'],['Kingfisher & Canopy','Birds'],['Savanna Silhouette Dawn','Safari'],['Leopards of Wilpattu','Safari'],['Butterfly Field Study','Kids'],['Whale & The Deep','Ocean'],['Gilded Peacock Feathers','Birds'],['Minimal Fox Line Art','Minimal'],['Sepia Horse Study','Minimal'],['Flamingo Lagoon','Ocean'],['Coral Reef Escape','Ocean'],['Jungle Friends Nursery','Kids']]},
+{slug:'kids-educational',name:'Kids & Educational',count:32,low:9500,high:15800,
+ title:'Kids & Educational Wallpaper Sri Lanka | ArtyHomes',
+ desc:'Educational kids\u2019 wallpaper by ArtyHomes — world maps, alphabets, dinosaurs. Odorless inks, washable PVC-free, safe for nurseries. Custom sizes.',
+ h1:'Kids & Educational Wallpaper in Sri Lanka — Safe, Washable, Made to Grow',
+ intro:`<p>The best kids' wallpaper does more than decorate — it gives a child something to point at every night. Our educational collection covers world maps with labelled continents, alphabet and number charts, a Sri Lankan wildlife poster featuring endemics like the purple-faced langur, solar systems and dinosaur lands — all of it printed to the exact dimensions of your child's wall, so nothing important gets sliced off by a fixed roll pattern.</p><p>Safety led every material decision here. We print exclusively with odorless, GREENGUARD-certified latex inks — no solvent smell, no VOCs, safe for a nursery occupied from day one — onto washable, PVC-free textured media that survives sticky hands and can be wiped with a damp cloth. Nursery designs in soft pastels can be personalised with a name at no extra cost, and adventure themes scale up for tweens. Because our anti-fungal treatment is applied to the base, the wall behind the paper stays healthy even through monsoon humidity. Measure the wall, send it over, and we will show you a scaled proof before anything prints.</p>`,
+ chips:['All','Educational','Nursery','Adventure','Pastel','Night Sky'],
+ names:[['Alphabet Safari Chart','Educational'],['World Map Explorer','Educational'],['Solar System','Night Sky'],['Numbers & Clouds','Nursery'],['Dinosaur Land','Adventure'],['Rainbow Hills','Pastel'],['Sri Lanka Wildlife Poster','Educational'],['Under the Sea ABC','Nursery'],['Hot Air Balloon Journey','Adventure'],['Doodle Highway','Adventure'],['Constellation Night Sky','Night Sky'],['Bunny Meadow','Pastel']]},
+{slug:'geometric-3d',name:'Geometric 3D',count:30,low:11000,high:17800,
+ title:'3D Geometric Wallpaper Sri Lanka | TV Walls | ArtyHomes',
+ desc:'3D geometric & illusion wallpaper for TV walls and offices by ArtyHomes. Metallic, marble-effect and optical designs, custom printed in Sri Lanka.',
+ h1:'3D Geometric Wallpaper in Sri Lanka — Depth, Line & Optical Play',
+ intro:`<p>Geometric wallpaper is the architect's choice: disciplined, contemporary and quietly dramatic. The 3D illusion family — stacked cubes, chevron depths, stacked-stone trompe-l'œil — is our most requested style for TV feature walls and reception desks, because printed shadow and highlight do the work that expensive joinery would normally charge for. Metallic lattices in gold hexagon and brass inlay catch the evening light in west-facing Colombo apartments; marble-effect splits bring calm to home offices.</p><p>Two practical notes from a thousand installations. First, the 3D effect lives or dies on light direction — side lighting from a window or wall washer sells the illusion, flat ceiling light flattens it, so tell us where the wall sits and we will advise on orientation. Second, in compact rooms, vertical waves and narrow linear patterns lift the perceived ceiling height, while large bold cubes need at least four metres of width, which our made-to-measure printing handles without a break in the pattern. Everything ships with numbered panels and a 1 cm trimming allowance for a perfect corner-to-corner fit.</p>`,
+ chips:['All','3D Illusion','Metallic','Marble','Minimal Line'],
+ names:[['Emerald Cube Illusion','3D Illusion'],['Gold Hexagon Lattice','Metallic'],['Marble Wave Relief','Marble'],['Charcoal Chevron Depth','3D Illusion'],['Diamond Prism Silver','Metallic'],["Stacked Stone Trompe-l'œil",'3D Illusion'],['Hex Titanium Line','Minimal Line'],['Walnut Wave Panels','3D Illusion'],['Isometric City Blocks','Minimal Line'],['Calacatta Marble Split','Marble'],['Linear Brass Inlay','Metallic'],['Single Line Face Study','Minimal Line']]},
+{slug:'tropical-nature',name:'Tropical & Nature',count:38,low:9800,high:16200,
+ title:'Tropical Botanical Wallpaper Sri Lanka | ArtyHomes',
+ desc:'Monstera, palm & banana-leaf tropical wallpaper by ArtyHomes — anti-fungal base built for Sri Lankan humidity. Hotels & homes, from LKR 145/sqft.',
+ h1:'Tropical & Botanical Wallpaper in Sri Lanka — Built for Our Climate',
+ intro:`<p>Tropical botanical wallpaper makes particular sense here: monstera and palm shadows echo the light falling through your own garden, and banana-leaf greens sit naturally against teak, rattan and polished cement. It is also the style the hospitality sector asks for most — villa verandahs in Weligama, café courtyards in Colombo 07 and hotel lobbies from Negombo to Ella all want that inside-outside feeling year-round.</p><p>The honest problem with tropical wallpaper in the tropics is humidity, and it is the reason our version exists. Every tropical design is printed on media with an anti-fungal, moisture-resistant base treatment, and the breathable non-woven backing lets walls release trapped moisture instead of sealing it in — the failure mode that peels ordinary imported rolls off coastal walls within two seasons. Muted tonal options — eucalyptus, rice-terrace mist, bamboo screen — suit bedrooms, while bolder leaves carry entrance halls and restaurant feature walls. All of it is printed to your wall's exact size with numbered panels, and installed by our own teams islandwide under a five-year anti-peel warranty.</p>`,
+ chips:['All','Palm & Leaf','Forest','Muted Tonal','Water Garden'],
+ names:[['Monstera Shadow Play','Palm & Leaf'],['Banana Leaf Bold','Palm & Leaf'],['Palm Dawn Silhouette','Palm & Leaf'],['Ceylon Cinnamon Grove','Forest'],['Birds of Paradise','Water Garden'],['Fern Gully Deep Green','Forest'],['Coconut Ridge Mural','Palm & Leaf'],['Tonal Eucalyptus','Muted Tonal'],['Rice Terrace Mist','Muted Tonal'],['Lotus Pond Morning','Water Garden'],['Bamboo Screen','Muted Tonal'],['Heliconia Fire','Forest']]},
+{slug:'luxury-abstract',name:'Luxury Abstract',count:28,low:12000,high:19500,
+ title:'Luxury Abstract Wallpaper Sri Lanka | ArtyHomes',
+ desc:'Marble, liquid-gold & textured-plaster abstract wallpaper by ArtyHomes for premium homes and hospitality. Seamless, custom-sized. Colombo showroom.',
+ h1:'Luxury Abstract Wallpaper in Sri Lanka — Marble, Metal & Motion',
+ intro:`<p>Luxury abstract wallpaper is what our hotel and high-end residential clients reach for when they want richness without pattern. Liquid-gold flows and smoky agate panels behind reception desks; Nero Marquina and Calacatta marble effects where real stone is impractical at six metres wide; brushed plaster and silk-weave textures that give a charcoal-and-champagne palette actual surface depth you can feel passing a hand across the wall.</p><p>These designs demand seamless execution — a visible join across a flowing agate vein ruins the entire effect, which is why we print large hospitality walls on ultra-wide seamless fabric panels and number every strip for installation order. Sheens are chosen deliberately: metallics are printed with latex inks that hold a soft lustre under warm lighting without the mirror-flash of foil papers. Pricing sits at the top of our range and moves with wall size and material, so send dimensions through the calculator for an instant figure, or book a free measuring visit in Colombo and we will bring full-scale samples of any four designs you shortlist.</p>`,
+ chips:['All','Marble & Stone','Metallic','Abstract Ink','Textured Plaster'],
+ names:[['Nero Marquina Marble','Marble & Stone'],['Champagne Liquid Gold','Metallic'],['Brushed Bronze Plaster','Textured Plaster'],['Smoky Agate Panels','Marble & Stone'],['Charcoal Silk Weave','Textured Plaster'],['Ink Bloom No.7','Abstract Ink'],['Terrazzo Luxe','Marble & Stone'],['Molten Silver Leaf','Metallic'],['Rose Quartz Vein','Marble & Stone'],['Midnight Flux','Abstract Ink'],['Champagne Marble Vein','Marble & Stone'],['Slate Brushstroke','Textured Plaster']]}
+];
+
+const MATS=[
+ {id:'nw',name:'Non-Woven Matte',rate:145,note:'180gsm · breathable · dry-strippable'},
+ {id:'tx',name:'PVC-Free Textured',rate:185,note:'260gsm · scrubbable · mold-resistant core'},
+ {id:'fb',name:'Seamless Fabric',rate:225,note:'320gsm · washable · ultra-wide panels'}
+];
+const FAQS=[
+ {q:'How much does custom wallpaper cost per sqft in Sri Lanka?',a:'Printing starts at LKR 145 per sqft on non-woven matte, LKR 185 on PVC-free textured and LKR 225 on seamless fabric. Anti-fungal pre-treatment adds LKR 25/sqft and professional installation LKR 30/sqft. A typical 12 ft × 9 ft bedroom wall works out around LKR 24,000 fully treated and installed — use the calculator above for your exact figure.'},
+ {q:'Is there a minimum order size?',a:'Yes — we bill a minimum of 40 sqft per order, which covers print setup, color profiling and anti-fungal treatment of the media. Anything below 40 sqft of actual wall area is charged as 40 sqft.'},
+ {q:'How long does a custom mural take from approval to installation?',a:'Two to four working days for printing after you approve the scaled proof, with installation typically the following day. Colombo orders placed before noon usually measure within 48 hours. Islandwide delivery and installation is scheduled to match our installer routes.'},
+ {q:'Can I upload my own photo, artwork or a reference design?',a:'Absolutely. Send JPG, PNG or TIFF at roughly 150 dpi at final print size — a 12 ft × 9 ft wall wants about 5,400 × 4,050 px. Our prepress team checks resolution, scaling and colour free of charge and sends a proof. If your file is too small, our designers can redraw or upscale it from LKR 5,000, waived on orders above 150 sqft.'},
+ {q:'Will it survive Sri Lankan humidity and monsoon moisture?',a:'That is our specialisation. Every panel carries an anti-fungal, moisture-resistant base treatment, and the non-woven backing is breathable, letting the wall release trapped moisture instead of sealing it in — the main cause of peeling with imported papers. Correct wall prep (cured seepage repairs, alkali-resistant primer) plus our system is backed by a 5-year anti-peel warranty.'},
+ {q:'Do you handle installation, and do you work outside Colombo?',a:'Yes — installation is by our own trained teams, never subcontracted: LKR 30/sqft including wall prep, dust sheets, panel numbering and full cleanup. We cover all of Sri Lanka; Colombo and the Western Province are usually same-week, other districts scheduled to match installer routes.'}
+];
+const PROJECTS=[
+ {t:'Galle Fort Residence',m:'Residence · Galle Fort — Seamless fabric · 210 sqft',seed:'proj-galle',sp:7,w:1},
+ {t:'Kollupitiya Penthouse',m:'Residence · Colombo 03 — Luxury abstract · 380 sqft',seed:'proj-pent',sp:5,w:0},
+ {t:'Café Kumbuk',m:'Restaurant · Colombo 07 — Botanical line, PVC-free · 96 sqft',seed:'proj-kumbuk',sp:5,w:1},
+ {t:'Sigiriya Boutique Hotel',m:'Hotel lobby · Sigiriya — Custom mural · 640 sqft',seed:'proj-sigi',sp:7,w:0},
+ {t:'Mount Lavinia Beach Villa',m:'Residence · Mount Lavinia — Anti-fungal tropical · 320 sqft',seed:'proj-villa',sp:8,w:1},
+ {t:'Negombo Dental Clinic',m:'Healthcare · Negombo — Educational murals · 180 sqft',seed:'proj-clinic',sp:4,w:0}
+];
+const RATIOS=[.72,1.26,.84,1.44,1,.9];
+function catItems(c){
+  return c.names.map((n,i)=>{const r=RATIOS[i%6],p=c.low+((i*997)%(c.high-c.low));
+    return {n:n[0],tag:n[1],r,p:Math.round(p/100)*100,seed:c.slug+'-'+(i+1),
+      alt:`${n[0]} — ${c.name.toLowerCase()} wallpaper design custom-printed by ArtyHomes for a Sri Lankan interior`};});
+}
+
+/* =====================================================================
+   SCHEMA HELPERS — Breadcrumb / FAQ / Product / ItemList (dynamic)
+===================================================================== */
+const ldCrumbEl=document.createElement('script');ldCrumbEl.type='application/ld+json';ldCrumbEl.id='ld-crumb';
+const ldRouteEl=document.createElement('script');ldRouteEl.type='application/ld+json';ldRouteEl.id='ld-route';
+const ldImgEl  =document.createElement('script');ldImgEl.type='application/ld+json';ldImgEl.id='ld-img';
+[ldCrumbEl,ldRouteEl,ldImgEl].forEach(e=>document.head.appendChild(e));
+const setLD=(el,obj)=>{el.textContent=obj?JSON.stringify(obj):''};
+
+function crumbSchema(items){
+  return {'@context':'https://schema.org','@type':'BreadcrumbList',
+    itemListElement:items.map((it,i)=>({'@type':'ListItem','position':i+1,'name':it[0].trim(),'item':BIZ.site+it[1]}))};
+}
+function faqSchema(){ // generated from the SAME array as the visible accordion → always in sync
+  return {'@context':'https://schema.org','@type':'FAQPage',
+    mainEntity:FAQS.map(f=>({'@type':'Question','name':f.q,'acceptedAnswer':{'@type':'Answer','text':f.a}}))};
+}
+function customSchema(){
+  return {'@context':'https://schema.org','@graph':[
+    {'@type':'Product','name':'Custom Printed Wallpaper & Seamless Wall Murals',
+     'image':BIZ.site+'/og/custom-wallpaper.jpg',
+     'description':'Made-to-measure custom wallpaper and seamless wall murals printed in Colombo, Sri Lanka by ArtyHomes. Anti-fungal treated non-woven, PVC-free textured and seamless fabric materials with odorless latex inks, installed islandwide with a 5-year anti-peel warranty.',
+     'brand':{'@type':'Brand','name':BIZ.name},
+     'material':['Non-woven','Seamless fabric','PVC-free textured'],
+     'offers':{'@type':'AggregateOffer','priceCurrency':'LKR','lowPrice':145,'highPrice':255,'offerCount':'3','availability':'https://schema.org/InStock'}},
+    faqSchema()]};
+}
+function catSchema(c){
+  const its=catItems(c);
+  return {'@context':'https://schema.org','@graph':[
+    {'@type':'ItemList','itemListElement':its.map((it,i)=>({'@type':'ListItem','position':i+1,
+      'item':{'@type':'ImageObject','name':it.n,'contentUrl':pic(it.seed,1200,Math.round(1200/it.r)),
+              'description':it.alt,'representativeOfPage':i===0?'True':'False'}}))},
+    {'@type':'Product','name':`${c.name} Wallpaper — Custom Printed Collection (${BIZ.name})`,
+     'image':pic(its[0].seed,1200,Math.round(1200/its[0].r)),
+     'description':strip(c.intro).slice(0,280),
+     'brand':{'@type':'Brand','name':BIZ.name},
+     'offers':{'@type':'AggregateOffer','priceCurrency':'LKR','lowPrice':c.low,'highPrice':c.high,
+               'offerCount':String(its.length),'availability':'https://schema.org/InStock'}}]};
+}
+
+/* =====================================================================
+   HEAD MANAGER — title / meta / canonical / OG per route
+===================================================================== */
+function setMeta(attr,k,v){let e=document.head.querySelector(`meta[${attr}="${k}"]`);
+  if(!e){e=document.createElement('meta');e.setAttribute(attr,k);document.head.appendChild(e)}e.setAttribute('content',v)}
+function setHead(r){
+  document.title=r.title;
+  setMeta('name','description',r.desc);
+  setMeta('property','og:title',r.title);
+  setMeta('property','og:description',r.desc);
+  setMeta('property','og:type','website');
+  setMeta('property','og:url',BIZ.site+r.path);
+  setMeta('property','og:image',BIZ.site+'/og/cover.jpg');   // ← build a branded OG card: mural photo + logo lockup
+  setMeta('property','og:site_name',BIZ.name);
+  setMeta('name','twitter:card','summary_large_image');
+  setMeta('name','twitter:title',r.title);
+  setMeta('name','twitter:description',r.desc);
+  let c=document.head.querySelector('link[rel="canonical"]');
+  if(!c){c=document.createElement('link');c.rel='canonical';document.head.appendChild(c)}
+  c.href=BIZ.site+r.path;
+  setLD(ldCrumbEl,crumbSchema(r.crumbs));
+  setLD(ldRouteEl,r.schema||null);
+}
+
+/* =====================================================================
+   SHARED PARTIALS
+===================================================================== */
+function ctaBand(){return `
+<section class="sec sec-dark cta-band">
+  <div class="container">
+    <p class="eyebrow">When design comes to life — free measuring · 2–4 day printing · 5-year warranty</p>
+    <h2 class="f-d">Tell us your wall. We'll print it to the inch.</h2>
+    <p>WhatsApp a photo of the wall with its rough width and height — you'll have a scaled preview and a firm price back within one working day.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-solid" href="${waLink('Hello ArtyHomes! I would like a quote for a custom wall mural.')}" target="_blank" rel="noopener">${ic('wa')}Chat on WhatsApp</a>
+      <a class="btn btn-line-i" href="#/contact-us">Book a Free Measuring Visit</a>
+    </div>
+  </div>
+</section>`;}
+function trustStrip(){return `
+<div class="trust">
+  <div>${ic('shield')}<div><b>5-Year Anti-Peel Warranty</b><p>Written warranty card with every installation</p></div></div>
+  <div>${ic('leaf')}<div><b>Odorless Latex Inks</b><p>GREENGUARD certified — safe for bedrooms &amp; hospitals</p></div></div>
+  <div>${ic('drop')}<div><b>Anti-Fungal Treatment</b><p>Moisture-resistant base for the tropical climate</p></div></div>
+  <div>${ic('check')}<div><b>Our Own Installers</b><p>Trained in-house teams, islandwide coverage</p></div></div>
+</div>`;}
+function projectTiles(list){
+  return `<div class="pg">${list.map(p=>`
+    <figure class="rv ${p.w?'':'tl'}" style="--sp:${p.sp}">
+      <img src="${pic(p.seed,900,p.w?563:1035)}" width="900" height="${p.w?563:1035}" alt="${p.t} — installed wallpaper project in Sri Lanka by ArtyHomes" loading="lazy" decoding="async">
+      <figcaption><b>${p.t}</b><span>${p.m}</span></figcaption>
+    </figure>`).join('')}</div>`;
+}
+
+/* =====================================================================
+   CALCULATOR (shared by home, pillar + pricing pages)
+===================================================================== */
+function calcHTML(){
+  return `
+<div class="calc" id="calc-root">
+  <div>
+    <div class="stage" id="stage">
+      <div class="wall" id="wall"><span class="wall-tag" id="wallTag"></span><div id="seams" style="position:absolute;inset:0"></div></div>
+      <div class="dim dim-w" id="dimW"><span id="dimWL"></span></div>
+      <div class="dim dim-h" id="dimH"><span id="dimHL"></span></div>
+      <button class="hnd" id="hndW" aria-label="Drag to change wall width"></button>
+      <button class="hnd hnd-v" id="hndH" aria-label="Drag to change wall height"></button>
+      <span class="stage-cap">Drag the red handles or type your dimensions</span>
+    </div>
+    <span class="calc-lab">Units</span>
+    <div class="seg" id="seg">
+      <button data-u="ft" class="on">Feet</button><button data-u="m">Metres</button>
+    </div>
+  </div>
+  <div>
+    <span class="calc-lab">Wall dimensions</span>
+    <div class="dims">
+      <label><span>Width</span><input type="number" id="inW" min="2" max="30" step="0.5" value="12"><small id="inWm"></small></label>
+      <label><span>Height</span><input type="number" id="inH" min="2" max="12" step="0.5" value="9"><small id="inHm"></small></label>
+    </div>
+    <span class="calc-lab">Material</span>
+    <div class="mats" id="mats">${MATS.map((m,i)=>`
+      <label><input type="radio" name="mat" value="${m.id}" ${i===0?'checked':''}><span class="dot"></span>
+        <span class="mat-n">${m.name}<small>${m.note}</small></span><span class="mat-r">LKR ${m.rate} /sqft</span></label>`).join('')}
+    </div>
+    <span class="calc-lab">Add-ons</span>
+    <div class="adds">
+      <label><input type="checkbox" id="adAnti" checked><span class="box"></span><span class="add-n">Anti-fungal pre-treatment</span><span class="add-r">+ LKR 25 /sqft</span></label>
+      <label><input type="checkbox" id="adInst" checked><span class="box"></span><span class="add-n">Professional installation by our team</span><span class="add-r">+ LKR 30 /sqft</span></label>
+      <label><input type="checkbox" id="adWaste" checked><span class="box"></span><span class="add-n">10% wastage allowance (recommended)</span><span class="add-r">pattern matching</span></label>
+      <label><input type="checkbox" id="adDesign"><span class="box"></span><span class="add-n">Design service (redraw / upscale artwork)</span><span class="add-r">LKR 5,000 · free over 150 sqft</span></label>
+    </div>
+    <div class="bd" aria-live="polite">
+      <div class="bd-r"><span id="bdArea">—</span><b id="bdAreaV"></b></div>
+      <div class="bd-r"><span id="bdBase">—</span><b id="bdBaseV"></b></div>
+      <div class="bd-r" id="bdAntiR"><span>Anti-fungal treatment × 25</span><b id="bdAntiV"></b></div>
+      <div class="bd-r" id="bdInstR"><span>Installation × 30</span><b id="bdInstV"></b></div>
+      <div class="bd-r wv" id="bdDesR" style="display:none"><span>Design service (waived over 150 sqft)</span><b id="bdDesV"></b></div>
+      <div class="bd-t"><span>Estimated total</span><div style="text-align:right"><b id="bdTotal">—</b><br><small id="bdEff"></small></div></div>
+    </div>
+    <div class="calc-cta">
+      <a class="btn btn-solid" id="calcWa" target="_blank" rel="noopener">${ic('wa')}Order via WhatsApp</a>
+      <a class="btn" id="calcMail">${ic('mail')}Email Estimate</a>
+      <button class="btn btn-sm" id="calcCopy" style="border-style:dashed">${ic('copy')}Copy</button>
+    </div>
+    <p style="margin-top:16px;font-size:12.5px;color:var(--ink3)">Minimum billing 40 sqft · Firm quote confirmed after free measuring · Prices valid 2025</p>
+  </div>
+</div>`;
+}
+function initCalc(root){
+  const s={unit:'ft',w:12,h:9};
+  const el={stage:$('#stage',root),wall:$('#wall',root),seams:$('#seams',root),tag:$('#wallTag',root),
+    dW:$('#dimW',root),dH:$('#dimH',root),dWL:$('#dimWL',root),dHL:$('#dimHL',root),
+    hW:$('#hndW',root),hH:$('#hndH',root),inW:$('#inW',root),inH:$('#inH',root),
+    inWm:$('#inWm',root),inHm:$('#inHm',root),seg:$('#seg',root)};
+  const R=()=>root;
+  const wFt=()=>s.unit==='ft'?s.w:s.w*3.28084;
+  const hFt=()=>s.unit==='ft'?s.h:s.h*3.28084;
+  function mat(){return MATS.find(m=>m.id===$('input[name="mat"]:checked',R()).value)}
+  function compute(){
+    const m=mat(),anti=$('#adAnti',R()).checked,inst=$('#adInst',R()).checked,
+          waste=$('#adWaste',R()).checked,design=$('#adDesign',R()).checked;
+    const raw=wFt()*hFt(), billed=Math.max(40,Math.ceil(raw*(waste?1.1:1)));
+    const base=billed*m.rate, aV=anti?billed*25:0, iV=inst?billed*30:0;
+    const dWaiver=design&&billed>=150, dV=dWaiver?0:(design?5000:0);
+    const total=base+aV+iV+dV;
+    const panels=Math.max(1,Math.ceil(wFt()/2));
+    $('#bdArea',R()).textContent=`Printed area (${waste?'incl. 10% wastage':'net'}) — ${panels} panels × 24\u2033`;
+    $('#bdAreaV',R()).textContent=`${fmt(billed)} sqft`;
+    $('#bdBase',R()).textContent=`${m.name} × ${m.rate}`;
+    $('#bdBaseV',R()).textContent=`LKR ${fmt(base)}`;
+    $('#bdAntiR',R()).style.display=anti?'':'none'; if(anti)$('#bdAntiV',R()).textContent='LKR '+fmt(aV);
+    $('#bdInstR',R()).style.display=inst?'':'none'; if(inst)$('#bdInstV',R()).textContent='LKR '+fmt(iV);
+    $('#bdDesR',R()).style.display=design?'':'none';
+    $('#bdDesV',R()).textContent=dWaiver?'FREE':'LKR '+fmt(dV);
+    $('#bdTotal',R()).textContent='LKR '+fmt(total);
+    $('#bdEff',R()).textContent=`LKR ${fmt(total/billed)} /sqft effective`;
+    const list=[anti&&'Anti-fungal',inst&&'Installation'].filter(Boolean).join(', ')||'None';
+    const msg=`Hello ArtyHomes! I'd like a custom wallpaper quote:\n\n• Wall: ${s.w} × ${s.h} ${s.unit} (${fmt(raw)} sqft, ${panels} panels)\n• Material: ${m.name} — LKR ${m.rate}/sqft\n• Add-ons: ${list}\n• Estimated total: LKR ${fmt(total)}\n\n(Sent from the website calculator)`;
+    $('#calcWa',R()).href=waLink(msg);
+    $('#calcMail',R()).href=`mailto:${BIZ.email}?subject=${encodeURIComponent('Custom wallpaper quote — '+s.w+'×'+s.h+' '+s.unit)}&body=${encodeURIComponent(msg)}`;
+    $('#calcCopy',R()).dataset.msg=msg;
+    return {raw,billed,panels,m,total};
+  }
+  function draw(){
+    const st=el.stage.getBoundingClientRect();
+    const wf=wFt(),hf=hFt();
+    const sc=Math.min((st.width-100)/wf,(st.height-104)/hf,120);
+    const W=wf*sc,H=hf*sc,L=(st.width-W)/2+14,T=(st.height-H)/2+20;
+    Object.assign(el.wall.style,{left:L+'px',top:T+'px',width:W+'px',height:H+'px'});
+    el.tag.textContent=`Wall · ${s.w} × ${s.h} ${s.unit}`;
+    Object.assign(el.dW.style,{left:L+'px',top:(T-26)+'px',width:W+'px'});
+    el.dWL.textContent=`${s.w} ${s.unit} wide`;
+    Object.assign(el.dH.style,{left:(L-26)+'px',top:T+'px',height:H+'px'});
+    el.dHL.textContent=`${s.h} ${s.unit}`;
+    el.hW.style.left=(L+W-10)+'px'; el.hW.style.top=(T+H/2-10)+'px';
+    el.hH.style.left=(L+W/2-10)+'px'; el.hH.style.top=(T+H-10)+'px';
+    el.seams.innerHTML='';
+    const pw=2*sc; // 24-inch print panels
+    for(let x=pw;x<W-1;x+=pw){const d=document.createElement('div');d.className='seam';d.style.left=x+'px';el.seams.appendChild(d)}
+    compute();
+  }
+  function syncInputs(){
+    el.inW.value=s.w; el.inH.value=s.h;
+    if(s.unit==='ft'){el.inW.min=2;el.inW.max=30;el.inW.step=.5;el.inH.min=2;el.inH.max=12;el.inH.step=.5;
+      el.inWm.textContent='ft · 2 – 30';el.inHm.textContent='ft · 2 – 12';}
+    else{el.inW.min=.6;el.inW.max=9.1;el.inW.step=.05;el.inH.min=.6;el.inH.max=3.65;el.inH.step=.05;
+      el.inWm.textContent='m · 0.6 – 9.1';el.inHm.textContent='m · 0.6 – 3.65';}
+  }
+  el.inW.addEventListener('input',()=>{s.w=Math.min(+el.inW.max,Math.max(+el.inW.min,+el.inW.value||+el.inW.min));draw()});
+  el.inH.addEventListener('input',()=>{s.h=Math.min(+el.inH.max,Math.max(+el.inH.min,+el.inH.value||+el.inH.min));draw()});
+  el.seg.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.classList.contains('on'))return;
+    $$('button',el.seg).forEach(x=>x.classList.toggle('on',x===b));
+    const old=s.unit;s.unit=b.dataset.u;
+    const k=s.unit==='m'?0.3048:1/0.3048,r=s.unit==='m'?(v=>Math.round(v*100)/100):(v=>Math.round(v*2)/2);
+    s.w=r(s.w*k);s.h=r(s.h*k);syncInputs();draw();});
+  // drag handles — the signature interaction
+  function drag(handle,which){
+    handle.addEventListener('pointerdown',e=>{
+      e.preventDefault();handle.setPointerCapture(e.pointerId);
+      const sx=e.clientX,sy=e.clientY,sw=s.w,sh=s.h;
+      const mv=ev=>{
+        const st=el.stage.getBoundingClientRect();
+        const sc=Math.min((st.width-100)/wFt(),(st.height-104)/hfFt(),120);
+        if(which==='w'){let v=sw+(ev.clientX-sx)/sc*(s.unit==='m'?0.3048:1);
+          v=s.unit==='m'?Math.round(v*20)/20:Math.round(v*2)/2;
+          s.w=Math.min(+el.inW.max,Math.max(+el.inW.min,v));}
+        else{let v=sh+(ev.clientY-sy)/sc*(s.unit==='m'?0.3048:1);
+          v=s.unit==='m'?Math.round(v*20)/20:Math.round(v*2)/2;
+          s.h=Math.min(+el.inH.max,Math.max(+el.inH.min,v));}
+        syncInputs();draw();};
+      const up=()=>{window.removeEventListener('pointermove',mv);window.removeEventListener('pointerup',up)};
+      window.addEventListener('pointermove',mv);window.addEventListener('pointerup',up);
+    });
+  }
+  drag(el.hW,'w');drag(el.hH,'h');
+  $$('#mats input,#adds input',R()).forEach(i=>i.addEventListener('change',compute));
+  $('#calcCopy',R()).addEventListener('click',()=>{
+    navigator.clipboard.writeText($('#calcCopy',R()).dataset.msg).then(()=>toast('Estimate copied to clipboard'));});
+  syncInputs();draw();
+  if(window.__calcRz)window.removeEventListener('resize',window.__calcRz);
+  window.__calcRz=draw;
+  window.addEventListener('resize',window.__calcRz);
+}
+
+/* =====================================================================
+   VIEWS
+===================================================================== */
+function vHome(){return `
+<section class="hero"><div class="container">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">Custom Wallpaper &amp; Wall Murals · Colombo, Sri Lanka</p>
+      <h1 class="f-d">Custom Wallpaper in Sri Lanka — Printed to the Exact Inch of Your Wall</h1>
+      <p class="lede">ArtyHomes is Colombo's specialist wallpaper studio: made-to-measure murals from our own print facility, plus 200+ imported and custom-printed designs across six collections. Anti-fungal finishes, odorless inks, installed islandwide.</p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#/custom-wallpaper-sri-lanka?goto=calc">Get an Instant Price ${ic('arrow')}</a>
+        <a class="btn" href="#collections">Browse Collections</a>
+      </div>
+      <p class="hero-micro">Free measuring in Colombo · 48-hour print turnaround · 5-year anti-peel warranty</p>
+    </div>
+    <div class="hero-media">
+      <img class="hm-a" src="${pic('arty-hero-main',880,1174)}" width="880" height="1174" fetchpriority="high" decoding="async" alt="Custom tropical botanical wall mural installed in a Colombo living room by ArtyHomes">
+      <img class="hm-b" src="${pic('arty-hero-inset',760,590)}" width="760" height="590" decoding="async" alt="Detail of a seamless custom wallpaper mural printed to exact wall size in Sri Lanka by ArtyHomes">
+      <span class="hm-cap">Residence, Cinnamon Gardens — 6.4 m seamless mural, 8 panels</span>
+    </div>
+  </div>
+  <div class="stats rv">
+    <div><b>1,400+</b><span>walls printed &amp; installed</span></div>
+    <div><b>212</b><span>designs across 6 collections</span></div>
+    <div><b>48 h</b><span>print turnaround</span></div>
+    <div><b>5 yr</b><span>anti-peel warranty</span></div>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="container">
+  <div class="sec-head rv">
+    <div><p class="eyebrow">The flagship service</p><h2 class="f-d" style="margin-top:16px">One wall. Any design. Your exact size.</h2></div>
+    <p class="lede">Hotel lobbies, bedroom feature walls, café courtyards — we print seamless murals to your wall's exact measurements on anti-fungal, PVC-free materials, then install them with our own teams.</p>
+  </div>
+  ${calcHTML()}
+  <div style="margin-top:44px"><a class="tlink" href="#/custom-wallpaper-sri-lanka">Everything about custom wallpaper in Sri Lanka ${ic('arrow')}</a></div>
+</div></section>
+
+<section class="sec" id="collections" style="background:var(--panel);border-top:1px solid var(--line2)"><div class="container">
+  <div class="sec-head rv">
+    <div><p class="eyebrow">Ready-made &amp; custom-printed collections</p><h2 class="f-d" style="margin-top:16px">The Collection Index</h2></div>
+    <p class="lede">Every design works two ways: bought by the roll, or printed to your exact wall size from LKR 145/sqft.</p>
+  </div>
+  <div class="colx rv">${CATS.map((c,i)=>{const it=catItems(c)[0];return `
+    <a href="#/wallpaper/${c.slug}">
+      <span class="n">${String(i+1).padStart(2,'0')}</span>
+      <span class="t">${c.name}</span>
+      <span class="m">${c.count} designs<br>from LKR ${fmt(c.low)} /roll</span>
+      <img src="${pic(it.seed,208,136)}" width="104" height="68" loading="lazy" decoding="async" alt="${it.alt}">
+      ${ic('arrow')}
+    </a>`}).join('')}</div>
+</div></section>
+
+<section class="sec"><div class="container">
+  <div class="sec-head rv"><div><p class="eyebrow">Why ArtyHomes</p></div></div>
+  <div class="trust rv" style="margin-bottom:88px">${trustStrip()}</div>
+  <div class="sec-head rv">
+    <div><p class="eyebrow">Recent work</p><h2 class="f-d" style="margin-top:16px">Installed across hotels, restaurants &amp; homes</h2></div>
+    <a class="tlink" href="#/projects-portfolio">Full portfolio ${ic('arrow')}</a>
+  </div>
+  ${projectTiles(PROJECTS.slice(0,3))}
+</div></section>
+
+<section class="sec" style="background:var(--panel);border-top:1px solid var(--line2)"><div class="container">
+  <div class="quotes">
+    <div class="rv">
+      <p class="q-big">ArtyHomes measured on Tuesday, printed by Friday, and the mural fit our 6.4-metre lobby wall with no seam you can find. Guests ask about it every week."</p>
+      <div class="q-who"><span class="stars">${ic('star','ic-f').repeat(5)}</span><div><b>Shenali Wickramasinghe</b><br><span>Boutique hotel · Colombo 07</span></div></div>
+    </div>
+    <div class="rv">
+      <p class="q-sm">"Our beachfront villa in Mount Lavinia kills ordinary wallpaper. Three seasons in, ArtyHomes' work hasn't peeled a corner — the anti-fungal base is why we chose them."</p>
+      <div class="q-who" style="margin-top:6px"><span class="stars">${ic('star','ic-f').repeat(5)}</span><div><b>Rukshan Dias</b> · <span>Homeowner, Mount Lavinia</span></div></div>
+      <p class="q-sm" style="margin-top:18px">"I specify ArtyHomes for every client now. Panel numbering and the proof preview mean my installations never get surprises."</p>
+      <div class="q-who" style="margin-top:6px"><span class="stars">${ic('star','ic-f').repeat(5)}</span><div><b>Ayesha Rajapaksa</b> · <span>Interior Designer, Colombo</span></div></div>
+    </div>
+  </div>
+</div></section>
+ ${ctaBand()}`;}
+
+function vCustom(){return `
+<section class="sec" style="padding-bottom:72px"><div class="container">
+  <div class="hero-grid" style="align-items:start">
+    <div>
+      <p class="eyebrow">Custom Wallpaper · Sri Lanka</p>
+      <h1 class="f-d" style="font-size:clamp(36px,4.4vw,58px);margin:22px 0 24px">Sri Lanka's #1 Custom Wallpaper &amp; Seamless Wall Murals — Made to Your Exact Wall Size</h1>
+      <p class="lede">Printed in our own Colombo facility on anti-fungal, PVC-free materials with odorless UV-latex inks. Send us your wall dimensions and any design — we print it edge-to-edge, panel-numbered, and install it islandwide.</p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#/custom-wallpaper-sri-lanka?goto=upload">${ic('upload')}Upload Your Design</a>
+        <a class="btn" href="${waLink('Hello ArtyHomes! I would like to discuss a custom wallpaper / wall mural project.')}" target="_blank" rel="noopener">${ic('wa')}Chat on WhatsApp</a>
+      </div>
+      <p class="hero-micro">Free measuring in Colombo · 2–4 day printing · 5-year anti-peel warranty</p>
+    </div>
+    <div class="hero-media" style="padding-bottom:0">
+      <img class="hm-a" style="width:100%" src="${pic('arty-custom-wall',880,1100)}" width="880" height="1100" fetchpriority="high" decoding="async" alt="Made-to-measure custom wallpaper mural by ArtyHomes being fitted to an exact wall size in a Sri Lankan home">
+      <span class="hm-cap" style="left:0;bottom:16px">W 4.8 m × H 3.1 m — printed as 8 numbered panels, zero visible seams</span>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec" id="calc" style="background:var(--panel);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)"><div class="container">
+  <div class="sec-head rv">
+    <div><p class="eyebrow">Instant estimate</p><h2 class="f-d" style="margin-top:16px">Custom Wallpaper Price Calculator (Sqft)</h2></div>
+    <p class="lede">Move the handles or type your wall size and see the real price before you call anyone. No email wall, no "request a quote" runaround.</p>
+  </div>
+  ${calcHTML()}
+</div></section>
+
+<section class="sec" id="materials"><div class="container">
+  <div class="spec">
+    <div class="spec-l rv">
+      <p class="eyebrow">High-specification print</p>
+      <h2 class="f-d" style="font-size:clamp(28px,3.2vw,40px);margin-top:16px">Materials &amp; print specifications</h2>
+      <p>Three engineered media, one standard: every panel is printed at 1,440 dpi with odorless latex inks and carries our anti-fungal, moisture-resistant base treatment developed for the Sri Lankan tropical climate.</p>
+      <div class="ink-note">${ic('leaf')}<span><b>All materials.</b> Printed with GREENGUARD Gold certified UV / latex inks — completely odorless, zero VOC off-gassing, safe for bedrooms, nurseries and hospitals from day one. Anti-fungal pre-treatment available on all three media.</span></div>
+    </div>
+    <div>
+      <div class="mat-row rv">
+        <h3>Non-Woven Matte<small>The everyday premium</small></h3>
+        <dl><dt>Composition</dt><dd>180 gsm breathable non-woven, PVC-free, matte finish, dry-strippable for damage-free removal</dd>
+        <dt>Best for</dt><dd>Bedrooms, living rooms, apartments — hides minor wall imperfections</dd></dl>
+        <div class="pr">LKR 145<small>per sqft</small></div>
+      </div>
+      <div class="mat-row rv">
+        <h3>PVC-Free Textured<small>Scrubbable &amp; commercial-grade</small></h3>
+        <dl><dt>Composition</dt><dd>260 gsm embossed plaster / linen texture, mold-resistant core, scrubbable surface</dd>
+        <dt>Best for</dt><dd>Kitchens, kids' rooms, clinics, restaurants — anything that gets wiped daily</dd></dl>
+        <div class="pr">LKR 185<small>per sqft</small></div>
+      </div>
+      <div class="mat-row rv">
+        <h3>Seamless Fabric<small>For walls over 5 metres</small></h3>
+        <dl><dt>Composition</dt><dd>320 gsm polyester fabric, ultra-wide panels, washable, anti-static, virtually seam-free</dd>
+        <dt>Best for</dt><dd>Hotel lobbies, large feature walls, hospitality &amp; office branding</dd></dl>
+        <div class="pr">LKR 225<small>per sqft</small></div>
+      </div>
+      <p style="margin-top:26px;font-size:14px;color:var(--ink2)">Curious how we make these survive the monsoon? Read the <a href="#/anti-fungal-installation-guide" style="color:var(--red);text-decoration:underline">anti-fungal installation guide</a>.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec" id="how" style="background:var(--panel);border-top:1px solid var(--line2)"><div class="container">
+  <div class="sec-head rv">
+    <div><p class="eyebrow">The process</p><h2 class="f-d" style="margin-top:16px">From bare wall to finished mural in 4 steps</h2></div>
+  </div>
+  <div class="steps rv">
+    <div class="step"><i>01</i><h3>Measure your wall</h3><p>Width × height at the widest points. Free laser measuring in Colombo, or measure yourself and we will double-check your numbers when we scale the artwork.</p></div>
+    <div class="step"><i>02</i><h3>Choose or upload a design</h3><p>Pick from 200+ designs, send your own photo or artwork, or brief our designers. You approve a scaled proof before anything prints — free of charge.</p></div>
+    <div class="step"><i>03</i><h3>Print &amp; anti-fungal pre-treat</h3><p>Printed to exact size with numbered panels and a 1 cm trimming allowance, base-treated for fungus and moisture resistance, and quality-checked panel by panel.</p></div>
+    <div class="step"><i>04</i><h3>Professional installation</h3><p>Our own trained teams install with dust sheets and full cleanup. The wall settles for 24 hours, then you receive your written 5-year anti-peel warranty card.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="upload"><div class="container">
+  <div class="sec-head rv">
+    <div><p class="eyebrow">Your artwork</p><h2 class="f-d" style="margin-top:16px">Upload your own design or photo</h2></div>
+    <p class="lede">A holiday photo, your child's drawing, brand artwork or a reference from Pinterest — our prepress team checks resolution, scaling and colour free of charge before anything prints.</p>
+  </div>
+  <div style="max-width:720px" class="rv">
+    <label class="up" id="upZone">
+      <input type="file" id="upInput" accept="image/*" hidden>
+      ${ic('upload')}<b>Click to choose your image</b>
+      <p>JPG · PNG · TIFF — ideally 150 dpi at final print size</p>
+    </label>
+    <div class="up-preview" id="upPrev">
+      <img id="upThumb" alt="Your uploaded design preview">
+      <div><b id="upName"></b><span id="upSize"></span></div>
+      <a class="btn btn-solid btn-sm" id="upWa" style="margin-left:auto" target="_blank" rel="noopener">${ic('wa')}Send This Design</a>
+    </div>
+    <p style="margin-top:16px;font-size:12.5px;color:var(--ink3)">In this demo your file never leaves your device — in production it uploads straight to our secured Cloudinary vault, visible only to our prepress team.</p>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="container">
+  <div class="sec-head rv">
+    <div><p class="eyebrow">Recent custom murals</p><h2 class="f-d" style="margin-top:16px">Proof, not promises</h2></div>
+    <a class="tlink" href="#/projects-portfolio">All projects ${ic('arrow')}</a>
+  </div>
+  ${projectTiles([PROJECTS[3],PROJECTS[0],PROJECTS[2]])}
+</div></section>
+
+<section class="sec" id="faq" style="background:var(--panel);border-top:1px solid var(--line2)"><div class="container">
+  <div class="sec-head rv"><div><p class="eyebrow">Answers</p><h2 class="f-d" style="margin-top:16px">Custom wallpaper in Sri Lanka — your questions</h2></div></div>
+  <div class="rv" id="faqList">${FAQS.map((f,i)=>`
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false" data-i="${i}"><h3>${f.q}</h3>${ic('chev')}</button>
+      <div class="faq-a"><div><p>${f.a}</p></div></div>
+    </div>`).join('')}</div>
+</div></section>
+ ${ctaBand()}`;}
+
+function vCategory(c){
+  const its=catItems(c);
+  return `
+<section class="sec" style="padding-bottom:64px"><div class="container">
+  <p class="eyebrow" style="margin-bottom:20px"><a href="#/" style="color:inherit;text-decoration:none">Home</a>&nbsp;/&nbsp;<a href="#collections" style="color:inherit;text-decoration:none">Wallpaper Collections</a>&nbsp;/&nbsp;${c.name}</p>
+  <h1 class="f-d" style="font-size:clamp(34px,4.2vw,56px);max-width:20ch">${c.h1}</h1>
+  <div class="lede" style="max-width:78ch;margin-top:26px;color:var(--ink2)">${c.intro}</div>
+</div></section>
+
+<section class="sec" id="gallery" style="padding-top:0"><div class="container">
+  <div class="sec-head rv">
+    <div><p class="eyebrow">The collection</p><h2 class="f-d" style="margin-top:16px">Browse ${c.name} designs</h2></div>
+    <p class="lede">Every design is available by the roll or custom-printed to your wall size from LKR 145/sqft.</p>
+  </div>
+  <div class="chips" id="chips">${c.chips.map((ch,i)=>`<button class="chip ${i===0?'on':''}" data-f="${ch}">${ch}</button>`).join('')}</div>
+  <div class="gal" id="gal"></div>
+  <div class="gal-more" id="galMore">
+    <button class="btn" id="moreBtn">Load all ${its.length} preview designs</button>
+    <p>The full ${c.count}-design catalogue is available at the showroom — WhatsApp us for the digital lookbook.</p>
+  </div>
+</div></section>
+
+<section class="sec" style="background:var(--panel);border-top:1px solid var(--line2)"><div class="container">
+  <div class="sec-head rv">
+    <div><p class="eyebrow">${c.name} wallpaper price in Sri Lanka</p><h2 class="f-d" style="margin-top:16px">Roll or made-to-measure — your choice</h2></div>
+  </div>
+  <div class="trust rv">${trustStrip()}</div>
+  <table class="tbl rv" style="margin-top:52px">
+    <thead><tr><th>Material</th><th>Finish</th><th>Price</th><th>Best for</th></tr></thead>
+    <tbody>${MATS.map(m=>`<tr><td>${m.name}</td><td>${m.note}</td><td class="pr">LKR ${m.rate} /sqft</td><td>${m.id==='nw'?'Bedrooms, living rooms':m.id==='tx'?'Kitchens, kids\u2019 rooms, commercial':'Hotel lobbies, walls over 5 m'}</td></tr>`).join('')}</tbody>
+  </table>
+  <div style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap" class="rv">
+    <a class="btn btn-solid" href="#/custom-wallpaper-sri-lanka?goto=calc">Calculate my wall's price</a>
+    <a class="btn" href="${waLink('Hello ArtyHomes! I am browsing your '+c.name+' wallpaper collection and would like advice for my wall.')}" target="_blank" rel="noopener">${ic('wa')}Ask a specialist</a>
+  </div>
+</div></section>
+
+<section class="sec"><div class="container">
+  <div class="sec-head rv"><div><p class="eyebrow">Keep exploring</p><h2 class="f-d" style="margin-top:16px">Related collections</h2></div></div>
+  <div class="colx rv">${CATS.filter(x=>x.slug!==c.slug).slice(0,4).map((x,i)=>{const it=catItems(x)[0];return `
+    <a href="#/wallpaper/${x.slug}"><span class="n">${String(i+1).padStart(2,'0')}</span><span class="t">${x.name}</span>
+    <span class="m">${x.count} designs</span><img src="${pic(it.seed,208,136)}" width="104" height="68" loading="lazy" decoding="async" alt="${it.alt}">${ic('arrow')}</a>`}).join('')}</div>
+</div></section>
+ ${ctaBand()}`;}
+
+function vPricing(){return `
+<section class="sec" style="padding-bottom:56px"><div class="container">
+  <p class="eyebrow">Transparent rates · 2025</p>
+  <h1 class="f-d" style="font-size:clamp(34px,4.2vw,56px);max-width:22ch;margin-top:20px">Wallpaper Price in Sri Lanka — Per Sqft Rates &amp; Instant Calculator</h1>
+  <p class="lede" style="max-width:70ch;margin-top:22px">No hidden charges: the rate below is what you multiply your wall area by. Anti-fungal treatment and installation are optional line items, and every quote is confirmed free of charge after measuring.</p>
+</div></section>
+<section class="sec" style="padding-top:0"><div class="container">
+  <table class="tbl rv"><thead><tr><th>Material</th><th>Finish &amp; composition</th><th>Price / sqft</th><th>Best for</th></tr></thead>
+  <tbody>${MATS.map(m=>`<tr><td>${m.name}</td><td>${m.note}</td><td class="pr">LKR ${m.rate}</td><td>${m.id==='nw'?'Bedrooms, living rooms, apartments':m.id==='tx'?'Kitchens, kids\u2019 rooms, clinics, commercial':'Hotel lobbies, seamless walls over 5 m'}</td></tr>`).join('')}</tbody></table>
+  <table class="tbl rv" style="margin-top:28px"><thead><tr><th>Service</th><th>Rate</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Anti-fungal pre-treatment</td><td class="pr">LKR 25 /sqft</td><td>Recommended islandwide; essential within 2 km of the coast</td></tr>
+    <tr><td>Professional installation</td><td class="pr">LKR 30 /sqft</td><td>Our own teams, wall prep &amp; cleanup included, islandwide</td></tr>
+    <tr><td>Design / artwork service</td><td class="pr">LKR 5,000 flat</td><td>Free on orders above 150 sqft</td></tr>
+    <tr><td>Measuring visit — Colombo</td><td class="pr">Free</td><td>Western Province, weekdays</td></tr>
+    <tr><td>Measuring visit — islandwide</td><td class="pr">from LKR 3,500</td><td>Deducted from your order total</td></tr>
+  </tbody></table>
+  <ul class="notes rv" style="margin-top:28px">
+    <li>Minimum billing 40 sqft per order (covers print setup &amp; colour profiling).</li>
+    <li>A 10% wastage allowance for pattern matching is recommended and shown in the calculator.</li>
+    <li>Volume orders above 500 sqft receive an 8% discount — hotels and fit-out contractors welcome.</li>
+    <li>Final price depends on wall condition (primer), access (double-height walls) and artwork resolution.</li>
+  </ul>
+</div></section>
+<section class="sec" style="background:var(--panel);border-top:1px solid var(--line2)"><div class="container">
+  <div class="sec-head rv"><div><p class="eyebrow">Work it out yourself</p><h2 class="f-d" style="margin-top:16px">Instant sqft calculator</h2></div></div>
+  ${calcHTML()}
+</div></section>
+ ${ctaBand()}`;}
+
+function vPortfolio(){return `
+<section class="sec" style="padding-bottom:56px"><div class="container">
+  <p class="eyebrow">100+ installations across Sri Lanka</p>
+  <h1 class="f-d" style="font-size:clamp(34px,4.2vw,56px);max-width:22ch;margin-top:20px">Wallpaper Projects — Hotels, Restaurants &amp; Homes</h1>
+  <p class="lede" style="max-width:70ch;margin-top:22px">A selection of recent ArtyHomes custom murals and ready-made installations. Every project below was measured, printed and installed by our own teams.</p>
+</div></section>
+<section class="sec" style="padding-top:0"><div class="container">${projectTiles(PROJECTS)}</div></section>
+ ${ctaBand()}`;}
+
+function vGuide(){return `
+<section class="sec" style="padding-bottom:56px"><div class="container">
+  <p class="eyebrow">Climate-specific craft · Updated January 2025</p>
+  <h1 class="f-d" style="font-size:clamp(34px,4.2vw,56px);max-width:24ch;margin-top:20px">Anti-Fungal Wallpaper Installation Guide for Sri Lanka</h1>
+  <p class="lede" style="max-width:70ch;margin-top:22px">Imported wallpaper fails in Sri Lanka for one reason: six months of humidity finds any weakness in the wall or the adhesive. This is the exact system ArtyHomes installers follow — the reason we can put a five-year warranty in writing.</p>
+</div></section>
+<section class="sec" style="padding-top:0"><div class="container" style="max-width:800px">
+  <h2 class="f-d" style="font-size:28px;margin-bottom:14px">Why humidity matters</h2>
+  <p style="color:var(--ink2);line-height:1.8">Mould does not grow on the face of wallpaper — it grows on the paste layer behind it, feeding on moisture trapped between an impermeable paper and a damp wall. Coastal Colombo, Negombo and Galle regularly push indoor humidity past 85%. Any system that seals the wall airtight will eventually peel from the bottom corner outwards.</p>
+  <h2 class="f-d" style="font-size:28px;margin:36px 0 14px">Our four-layer defence</h2>
+  <ol class="notes" style="color:var(--ink2)">
+    <li><b style="color:var(--ink)">Alkali-resistant, anti-microbial primer</b> — seals fresh plaster and stops paste "burning" into the wall.</li>
+    <li><b style="color:var(--ink)">Anti-fungal base treatment on the media</b> — applied to every panel before printing, denying mould its food source.</li>
+    <li><b style="color:var(--ink)">Breathable non-woven backing</b> — lets the wall release trapped moisture instead of sealing it in.</li>
+    <li><b style="color:var(--ink)">Sealed seams &amp; edges</b> — rolled and treated so water never wicks behind a join.</li>
+  </ol>
+  <h2 class="f-d" style="font-size:28px;margin:36px 0 14px">Wall preparation checklist</h2>
+  <ol class="notes" style="color:var(--ink2)">
+    <li>Repair any seepage or rising damp at least 7 days before installation — we will not install over active damp.</li>
+    <li>Sand, fill and level; remove any old loose paint or previous paper.</li>
+    <li>Confirm wall moisture is low (we test with a moisture meter during free measuring visits).</li>
+    <li>Prime with an alkali-resistant, anti-microbial primer — included in our installation rate.</li>
+  </ol>
+  <h2 class="f-d" style="font-size:28px;margin:36px 0 14px">Care &amp; maintenance</h2>
+  <p style="color:var(--ink2);line-height:1.8">Wipe with a damp cloth and mild soap; avoid solvent cleaners on textured finishes. Keep rooms ventilated during the monsoon. Inspect outer corners yearly — and if anything ever peels within five years, we return and refix it free under warranty.</p>
+  <div style="margin-top:44px;display:flex;gap:14px;flex-wrap:wrap">
+    <a class="btn btn-solid" href="#/custom-wallpaper-sri-lanka?goto=calc">Get your wall's price</a>
+    <a class="btn" href="#/contact-us">Book a free measuring visit</a>
+  </div>
+</div></section>
+ ${ctaBand()}`;}
+
+function vContact(){return `
+<section class="sec" style="padding-bottom:64px"><div class="container">
+  <p class="eyebrow">Showroom · Colombo 03</p>
+  <h1 class="f-d" style="font-size:clamp(34px,4.2vw,56px);max-width:22ch;margin-top:20px">Contact the ArtyHomes Showroom</h1>
+</div></section>
+<section class="sec" style="padding-top:0"><div class="container" style="display:grid;grid-template-columns:1.15fr .85fr;gap:64px" id="ctGrid">
+  <form id="ctForm" novalidate class="rv">
+    <div class="f2">
+      <div class="fld" id="fName"><label for="cfName">Your name *</label><input id="cfName" autocomplete="name"><span class="err">Please tell us your name.</span></div>
+      <div class="fld" id="fPhone"><label for="cfPhone">Phone / WhatsApp *</label><input id="cfPhone" inputmode="tel" autocomplete="tel"><span class="err">We need a number to reply.</span></div>
+    </div>
+    <div class="fld"><label for="cfDist">District</label><select id="cfDist"><option>Colombo</option><option>Gampaha</option><option>Kalutara</option><option>Kandy</option><option>Galle</option><option>Negombo</option><option>Kurunegala</option><option>Other / Islandwide</option></select></div>
+    <div class="f2">
+      <div class="fld"><label for="cfW">Wall width (optional)</label><input id="cfW" inputmode="decimal" placeholder="e.g. 14 ft"></div>
+      <div class="fld"><label for="cfH">Wall height (optional)</label><input id="cfH" inputmode="decimal" placeholder="e.g. 9 ft"></div>
+    </div>
+    <div class="fld"><label for="cfMsg">What are you planning?</label><textarea id="cfMsg" placeholder="Bedroom feature wall, restaurant mural, full apartment…"></textarea></div>
+    <button class="btn btn-solid" type="submit">${ic('wa')}Send via WhatsApp</button>
+    <p style="margin-top:14px;font-size:12.5px;color:var(--ink3)">This form opens WhatsApp with your message pre-filled — nothing is stored on any server in this demo.</p>
+  </form>
+  <aside class="rv">
+    <div class="bd" style="margin-top:0">
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:18px">${ic('pin')}<div><b style="font-size:14.5px">Showroom</b><p style="font-size:14px;color:var(--ink2)">${BIZ.addr}</p></div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:18px">${ic('phone')}<div><b style="font-size:14.5px">Call a specialist</b><p style="font-size:14px;color:var(--ink2)"><a href="${BIZ.phoneHref}">${BIZ.phone}</a></p></div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:18px">${ic('mail')}<div><b style="font-size:14.5px">Email</b><p style="font-size:14px;color:var(--ink2)">${BIZ.email}</p></div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start">${ic('clock')}<div><b style="font-size:14.5px">Hours</b><p style="font-size:14px;color:var(--ink2)">${BIZ.hours}</p></div></div>
+    </div>
+  </aside>
+</div></section>
+ ${ctaBand()}`;}
+
+/* =====================================================================
+   GALLERY + LIGHTBOX
+===================================================================== */
+const G={cat:null,list:[],shown:0,step:8,idx:0};
+function galRender(){
+  const gal=$('#gal');if(!gal)return;
+  const f=$('#chips .on')?.dataset.f||'All';
+  G.list=catItems(G.cat).filter(it=>f==='All'||it.tag===f);
+  G.shown=Math.min(G.shown,G.list.length)||Math.min(G.step,G.list.length);
+  gal.innerHTML=G.list.slice(0,G.shown).map((it,i)=>`
+    <figure class="gal-item rv">
+      <button class="tile" data-i="${i}" aria-label="View ${it.n}">
+        <img src="${pic(it.seed,760,Math.round(760/it.r))}"
+             srcset="${srcset(it.seed,it.r)}" sizes="(max-width:700px) 92vw,(max-width:1100px) 46vw,30vw"
+             width="760" height="${Math.round(760/it.r)}" alt="${it.alt}" loading="lazy" decoding="async">
+      </button>
+      <figcaption class="tile-cap"><span class="cap-n">${it.n}</span><span class="cap-p">LKR ${fmt(it.p)} /roll</span></figcaption>
+    </figure>`).join('');
+  $('#galMore').style.display=G.shown<G.list.length?'':'none';
+  initReveal(gal);
+  $$('.tile',gal).forEach(b=>b.addEventListener('click',()=>lbOpen(+b.dataset.i)));
+}
+function lbOpen(i){
+  G.idx=i;const it=G.list[i];
+  $('#lbImg').src=pic(it.seed,1100,Math.round(1100/it.r));
+  $('#lbImg').width=1100;$('#lbImg').height=Math.round(1100/it.r);
+  $('#lbImg').alt=it.alt;
+  $('#lbCat').textContent=G.cat.name+' Collection';
+  $('#lbName').textContent=it.n;
+  $('#lbRows').innerHTML=`
+    <div><span>Ready-made roll</span><b>LKR ${fmt(it.p)}</b></div>
+    <div><span>Custom print to your wall</span><b>from LKR 145 /sqft</b></div>
+    <div><span>Material options</span><b>Non-woven · Textured · Fabric</b></div>
+    <div><span>Lead time</span><b>2–4 working days</b></div>`;
+  $('#lbAlt').innerHTML=`<b>SEO alt text</b><br>${it.alt}`;
+  $('#lbWa').href=waLink(`Hello ArtyHomes! I'm interested in the "${it.n}" design from your ${G.cat.name} collection. Could you share the full preview, the price for my wall size, and the lead time?`);
+  setLD(ldImgEl,{'@context':'https://schema.org','@type':'ImageObject','name':it.n,
+    'contentUrl':pic(it.seed,1200,Math.round(1200/it.r)),'description':it.alt,
+    'creditText':BIZ.name,'creator':{'@type':'Organization','name':BIZ.name}});
+  $('#lb').classList.add('open');document.body.style.overflow='hidden';
+}
+function lbClose(){$('#lb').classList.remove('open');document.body.style.overflow='';setLD(ldImgEl,null)}
+function lbStep(d){lbOpen((G.idx+d+G.list.length)%G.list.length)}
+ $('#lb').addEventListener('click',e=>{if(e.target.closest('[data-close]'))lbClose()});
+ $('#lbPrev').addEventListener('click',()=>lbStep(-1));
+ $('#lbNext').addEventListener('click',()=>lbStep(1));
+window.addEventListener('keydown',e=>{
+  if(!$('#lb').classList.contains('open'))return;
+  if(e.key==='Escape')lbClose();
+  if(e.key==='ArrowLeft')lbStep(-1);
+  if(e.key==='ArrowRight')lbStep(1);
+});
+
+/* =====================================================================
+   ROUTER
+===================================================================== */
+function parse(){
+  const h=location.hash.replace(/^#\/?/,'');const[p,q]=h.split('?');
+  const path=(p||'').replace(/\/+$/,'');
+  const HOME={path:'/',title:'ArtyHomes | Custom Wallpaper Sri Lanka & Colombo Shop',
+    desc:"Colombo's specialist wallpaper shop — custom murals & 200+ designer collections by ArtyHomes. Exact wall sizing, anti-fungal finish, 5-year warranty.",crumbs:[['Home','/']]};
+  if(!path)return{v:'home',r:HOME,goto:new URLSearchParams(q||'').get('goto')};
+  if(path==='custom-wallpaper-sri-lanka')return{v:'custom',r:{path:'/custom-wallpaper-sri-lanka/',
+    title:'Custom Wallpaper Sri Lanka | ArtyHomes Bespoke Murals',
+    desc:'Custom wallpaper from LKR 145/sqft, printed to your exact wall size by ArtyHomes. Upload any design. Anti-fungal, odorless inks. Instant sqft calculator.',
+    crumbs:[['Home','/'],['Custom Wallpaper','/custom-wallpaper-sri-lanka/']],schema:customSchema},goto:new URLSearchParams(q||'').get('goto')};
+  if(path.startsWith('wallpaper/')){const c=CATS.find(c=>c.slug===path.split('/')[1]);
+    if(c)return{v:'cat',c,r:{path:`/wallpaper/${c.slug}/`,title:c.title,desc:c.desc,
+      crumbs:[['Home','/'],['Wallpaper Collections','/'],[c.name,`/wallpaper/${c.slug}/`]],schema:catSchema(c)}};}
+  const simple={'pricing-calculator':['pricing','Wallpaper Price in Sri Lanka | Sqft Calculator | ArtyHomes','ArtyHomes wallpaper prices explained: LKR 145–225/sqft by material, plus installation & anti-fungal rates. Calculate your exact wall cost in seconds.','Pricing & Calculator','/pricing-calculator/'],
+    'projects-portfolio':['portfolio','Wallpaper Projects in Sri Lanka | Portfolio | ArtyHomes','100+ installed wallpaper projects across Sri Lanka by ArtyHomes — hotel murals, restaurant feature walls and residence makeovers. See the work.','Portfolio','/projects-portfolio/'],
+    'anti-fungal-installation-guide':['guide','Anti-Fungal Wallpaper Installation Guide | ArtyHomes','How ArtyHomes preps, treats and installs wallpaper for Sri Lanka\u2019s humidity — wall prep checklist, anti-fungal system and care for a 5-year finish.','Installation Guide','/anti-fungal-installation-guide/'],
+    'contact-us':['contact','Contact ArtyHomes | Wallpaper Shop Colombo 03','Visit the ArtyHomes showroom in Colombo 03 or WhatsApp us for free measuring, samples and quotes. Open Mon–Sat, 9 am–6 pm.','Contact','/contact-us/']};
+  if(simple[path]){const s=simple[path];return{v:s[0],r:{path:s[4],title:s[1],desc:s[2],crumbs:[['Home','/'],[s[3],s[4]]]}};}
+  return{v:'home',r:HOME};
+}
+function render(){
+  const p=parse();const app=$('#app');
+  if(p.v==='home')app.innerHTML=vHome();
+  else if(p.v==='custom')app.innerHTML=vCustom();
+  else if(p.v==='cat')app.innerHTML=vCategory(p.c);
+  else if(p.v==='pricing')app.innerHTML=vPricing();
+  else if(p.v==='portfolio')app.innerHTML=vPortfolio();
+  else if(p.v==='guide')app.innerHTML=vGuide();
+  else app.innerHTML=vContact();
+  setHead(p.r);
+  lbClose();
+  $$('.nav-links [data-nav]').forEach(a=>a.classList.toggle('on',a.dataset.nav===p.v||(p.v==='cat'&&a.dataset.nav==='home')));
+  document.body.classList.remove('menu-open');
+  window.scrollTo(0,0);
+  if($('.calc',app))initCalc($('.calc',app));
+  if(p.v==='cat'){G.cat=p.c;G.shown=0;
+    $('#chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;
+      $$('#chips .chip').forEach(x=>x.classList.toggle('on',x===b));G.shown=0;galRender();});
+    $('#moreBtn').addEventListener('click',()=>{G.shown=G.list.length;galRender();});
+    galRender();}
+  if(p.v==='custom')bindCustom();
+  if(p.v==='contact')bindContact();
+  initReveal(app);
+  if(p.goto){const t=document.getElementById(p.goto);if(t)setTimeout(()=>t.scrollIntoView({behavior:'smooth'}),80);}
+}
+
+/* =====================================================================
+   PAGE-SPECIFIC BINDINGS
+===================================================================== */
+function bindCustom(){
+  const inp=$('#upInput'),zone=$('#upZone'),prev=$('#upPrev');
+  if(!inp)return;
+  inp.addEventListener('change',()=>{
+    const f=inp.files[0];if(!f)return;
+    $('#upThumb').src=URL.createObjectURL(f);
+    $('#upName').textContent=f.name;
+    $('#upSize').textContent=(f.size/1048576).toFixed(1)+' MB · ready for prepress check';
+    $('#upWa').href=waLink(`Hello ArtyHomes! I'd like to print this design as a custom mural.\nFile: ${f.name} (${(f.size/1048576).toFixed(1)} MB)\nPlease check the resolution and send me a scaled proof.`);
+    zone.style.display='none';prev.style.display='flex';
+  });
+  initFaq();
+}
+function initFaq(){
+  $$('#faqList .faq-q').forEach(b=>b.addEventListener('click',()=>{
+    const item=b.parentElement,open=item.classList.contains('open');
+    $$('#faqList .faq-item.open').forEach(x=>{x.classList.remove('open');$('.faq-q',x).setAttribute('aria-expanded','false')});
+    if(!open){item.classList.add('open');b.setAttribute('aria-expanded','true')}
+  }));
+}
+function bindContact(){
+  $('#ctForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    let ok=true;
+    const name=$('#cfName').value.trim(),phone=$('#cfPhone').value.trim();
+    $('#fName').classList.toggle('bad',!name);if(!name)ok=false;
+    $('#fPhone').classList.toggle('bad',!phone);if(!phone)ok=false;
+    if(!ok){toast('Please fill the required fields');return}
+    const msg=`Hello ArtyHomes!\n\nName: ${name}\nPhone: ${phone}\nDistrict: ${$('#cfDist').value}`+
+      ($('#cfW').value?`\nWall: ${$('#cfW').value} × ${$('#cfH').value}`:'')+
+      `\n\n${$('#cfMsg').value||'I would like to discuss a wallpaper project.'}`;
+    window.open(waLink(msg),'_blank');
+    toast('Opening WhatsApp with your inquiry…');
+  });
+}
+
+/* =====================================================================
+   COMMON UI
+===================================================================== */
+let toastT;
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');
+  clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),2600)}
+const revealIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');revealIO.unobserve(e.target)}}),{threshold:.12});
+function initReveal(root){$$('.rv:not(.in)',root).forEach(el=>revealIO.observe(el))}
+ $('#ddPanel').innerHTML=CATS.map(c=>`<a href="#/wallpaper/${c.slug}" role="menuitem">${c.name}<span>${c.count} designs</span></a>`).join('');
+const dd=$('#dd'),ddBtn=$('#ddBtn');
+ddBtn.addEventListener('click',()=>{const o=dd.classList.toggle('open');ddBtn.setAttribute('aria-expanded',o)});
+document.addEventListener('click',e=>{if(!dd.contains(e.target))dd.classList.remove('open')});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){dd.classList.remove('open');document.body.classList.remove('menu-open')}});
+ $('#burger').addEventListener('click',()=>{document.body.classList.add('menu-open');$('#mmenu').setAttribute('aria-hidden','false')});
+ $('#mmClose').addEventListener('click',()=>{document.body.classList.remove('menu-open');$('#mmenu').setAttribute('aria-hidden','true')});
+ $$('#mmenu a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')));
+ $('#cbWa').href=waLink('Hello ArtyHomes! I found you through your website and would like to inquire about wallpaper.');
+
+render();
+window.addEventListener('hashchange',render);
+</script>
+</body>
+</html>
